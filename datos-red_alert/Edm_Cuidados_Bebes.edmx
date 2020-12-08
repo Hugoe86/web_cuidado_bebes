@@ -1,0 +1,2803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ERP_EJE_CENTRALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Apl_Accesos">
+          <Key>
+            <PropertyRef Name="Rol_ID" />
+            <PropertyRef Name="Menu_ID" />
+          </Key>
+          <Property Name="Rol_ID" Type="int" Nullable="false" />
+          <Property Name="Menu_ID" Type="int" Nullable="false" />
+          <Property Name="Estatus_ID" Type="int" Nullable="false" />
+          <Property Name="Habilitado" Type="char" MaxLength="1" />
+          <Property Name="Alta" Type="char" MaxLength="1" />
+          <Property Name="Cambio" Type="char" MaxLength="1" />
+          <Property Name="Eliminar" Type="char" MaxLength="1" />
+          <Property Name="Consultar" Type="char" MaxLength="1" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Ip_Creo" Type="varchar" MaxLength="50" />
+          <Property Name="Equipo_Creo" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Apl_Bebes">
+          <Key>
+            <PropertyRef Name="BebeId" />
+          </Key>
+          <Property Name="BebeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="250" />
+          <Property Name="FechaNacimiento" Type="smalldatetime" />
+          <Property Name="Sexo" Type="bit" />
+          <Property Name="Padecimientos" Type="varchar" MaxLength="500" />
+          <Property Name="UsuarioId" Type="int" />
+          <Property Name="RutaImagen" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Apl_Estatus">
+          <Key>
+            <PropertyRef Name="Estatus_ID" />
+          </Key>
+          <Property Name="Estatus_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apl_Historial_Bebes">
+          <Key>
+            <PropertyRef Name="HistorialId" />
+          </Key>
+          <Property Name="HistorialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BebeId" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="50" />
+          <Property Name="MesesVacuna" Type="int" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="FechaCreo" Type="smalldatetime" />
+          <Property Name="Peso" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Estatura" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="RecordatorioDetalleId" Type="int" />
+          <Property Name="RecordatorioId" Type="int" />
+        </EntityType>
+        <EntityType Name="Apl_Menus">
+          <Key>
+            <PropertyRef Name="Menu_ID" />
+          </Key>
+          <Property Name="Menu_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus_ID" Type="int" Nullable="false" />
+          <Property Name="Modulo_ID" Type="int" />
+          <Property Name="Parent_ID" Type="char" MaxLength="5" />
+          <Property Name="Menu_Descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="URL_LINK" Type="varchar" MaxLength="500" />
+          <Property Name="Nombre_Mostrar" Type="varchar" MaxLength="50" />
+          <Property Name="Orden" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="Icono" Type="varchar" MaxLength="30" />
+          <Property Name="Visible" Type="bit" />
+        </EntityType>
+        <EntityType Name="Apl_Modulos">
+          <Key>
+            <PropertyRef Name="Modulo_ID" />
+          </Key>
+          <Property Name="Modulo_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="Icono" Type="varchar" MaxLength="30" />
+          <Property Name="Orden" Type="int" />
+        </EntityType>
+        <EntityType Name="Apl_Opiniones">
+          <Key>
+            <PropertyRef Name="Opinion_Id" />
+          </Key>
+          <Property Name="Opinion_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Calificacion" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Comentarios" Type="varchar" MaxLength="1000" />
+          <Property Name="UsuarioMoviId" Type="int" />
+          <Property Name="Medico_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Apl_Parametros_Correo">
+          <Key>
+            <PropertyRef Name="Parametro_ID" />
+          </Key>
+          <Property Name="Parametro_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="100" />
+          <Property Name="Puerto" Type="int" />
+          <Property Name="Host" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Apl_Registro_Accesos">
+          <Key>
+            <PropertyRef Name="Empresa_ID" />
+            <PropertyRef Name="Registro_ID" />
+          </Key>
+          <Property Name="Empresa_ID" Type="int" Nullable="false" />
+          <Property Name="Registro_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario_ID" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Apl_Rel_Usuarios_Roles">
+          <Key>
+            <PropertyRef Name="Rel_Usuario_Rol_ID" />
+          </Key>
+          <Property Name="Rel_Usuario_Rol_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario_ID" Type="int" Nullable="false" />
+          <Property Name="Rol_ID" Type="int" Nullable="false" />
+          <Property Name="Empresa_ID" Type="int" Nullable="false" />
+          <Property Name="Sucursal_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Apl_Roles">
+          <Key>
+            <PropertyRef Name="Rol_ID" />
+            <PropertyRef Name="Empresa_ID" />
+          </Key>
+          <Property Name="Rol_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Empresa_ID" Type="int" Nullable="false" />
+          <Property Name="Nivel_ID" Type="int" />
+          <Property Name="Estatus_ID" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="Tipo" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Apl_Roles_Sucursales">
+          <Key>
+            <PropertyRef Name="Empresa_ID" />
+            <PropertyRef Name="Sucursal_ID" />
+            <PropertyRef Name="Rol_ID" />
+          </Key>
+          <Property Name="Empresa_ID" Type="int" Nullable="false" />
+          <Property Name="Sucursal_ID" Type="int" Nullable="false" />
+          <Property Name="Rol_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apl_Tipos_Usuarios">
+          <Key>
+            <PropertyRef Name="Tipo_Usuario_ID" />
+          </Key>
+          <Property Name="Tipo_Usuario_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Fecha_Creo" Type="datetime" Nullable="false" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Apl_Usuarios">
+          <Key>
+            <PropertyRef Name="Usuario_ID" />
+          </Key>
+          <Property Name="Empresa_ID" Type="int" Nullable="false" />
+          <Property Name="Usuario_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus_ID" Type="int" Nullable="false" />
+          <Property Name="Tipo_Usuario_ID" Type="int" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Fecha_Expira_Contrasenia" Type="datetime" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="No_Intentos_Recuperar" Type="varchar" MaxLength="1" />
+          <Property Name="Token_Confirmacion" Type="varchar" MaxLength="50" />
+          <Property Name="Fecha_Token" Type="datetime" Nullable="false" />
+          <Property Name="Respuesta_Secreta" Type="varchar" MaxLength="100" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="Fecha_Ultimo_Acceso" Type="datetime" />
+          <Property Name="Fecha_Intento_Acceso" Type="datetime" />
+          <Property Name="Usuario_login" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Apl_Usuarios_Movil">
+          <Key>
+            <PropertyRef Name="UsuarioMovilId" />
+          </Key>
+          <Property Name="UsuarioMovilId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="250" />
+          <Property Name="Correo" Type="varchar" MaxLength="250" />
+          <Property Name="Telefono" Type="varchar" MaxLength="20" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="250" />
+          <Property Name="Token" Type="varchar" MaxLength="250" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="FacebookI_Id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apple_Id" Type="nvarchar" MaxLength="100" />
+          <Property Name="LoginExterno" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Apl_Usuarios_Password">
+          <Key>
+            <PropertyRef Name="No_Registro" />
+            <PropertyRef Name="Empresa_ID" />
+            <PropertyRef Name="Usuario_ID" />
+          </Key>
+          <Property Name="No_Registro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Empresa_ID" Type="int" Nullable="false" />
+          <Property Name="Usuario_ID" Type="int" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Fecha_Password" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cat_Consejos_Medicos">
+          <Key>
+            <PropertyRef Name="Consejo_Id" />
+          </Key>
+          <Property Name="Consejo_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus_Id" Type="int" Nullable="false" />
+          <Property Name="Consejo" Type="varchar" MaxLength="1000" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="1500" />
+          <Property Name="Url" Type="varchar" MaxLength="100" />
+          <Property Name="Tags" Type="varchar" MaxLength="500" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Cat_Empleados">
+          <Key>
+            <PropertyRef Name="Empleado_ID" />
+          </Key>
+          <Property Name="Empleado_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Empresa_ID" Type="int" Nullable="false" />
+          <Property Name="No_Empleado" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nivel" Type="int" Nullable="false" />
+          <Property Name="Planta" Type="varchar" MaxLength="100" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="250" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="Estatus" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Cat_Especialidades">
+          <Key>
+            <PropertyRef Name="Especialidad_Id" />
+          </Key>
+          <Property Name="Especialidad_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus_Id" Type="int" Nullable="false" />
+          <Property Name="Especialidad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Cat_Horarios_Registro_Civil">
+          <Key>
+            <PropertyRef Name="Horario_Registro_Civil_Id" />
+          </Key>
+          <Property Name="Horario_Registro_Civil_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Registro_Civil_Id" Type="int" />
+          <Property Name="Dia" Type="varchar" MaxLength="50" />
+          <Property Name="Horario_Inicio" Type="time" Precision="7" />
+          <Property Name="Horario_Termino" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Cat_Horarios_Ubicaciones">
+          <Key>
+            <PropertyRef Name="Horario_Ubicacion_ID" />
+          </Key>
+          <Property Name="Horario_Ubicacion_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ubicacion_Id" Type="int" />
+          <Property Name="Dia" Type="varchar" MaxLength="50" />
+          <Property Name="Horario_Inicio" Type="time" Precision="7" />
+          <Property Name="Horario_Termino" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Cat_Medicos">
+          <Key>
+            <PropertyRef Name="Medico_Id" />
+          </Key>
+          <Property Name="Medico_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Especialidad_Id" Type="int" Nullable="false" />
+          <Property Name="Estatus_Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="Apellido_Paterno" Type="nvarchar" MaxLength="100" />
+          <Property Name="Apellido_Materno" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="No_Cedula" Type="varchar" MaxLength="50" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="Imagen" Type="varchar" MaxLength="1500" />
+          <Property Name="Hospital_Id" Type="int" />
+          <Property Name="Emergencias" Type="bit" />
+        </EntityType>
+        <EntityType Name="Cat_Mes_Aplicacion_Vacuna">
+          <Key>
+            <PropertyRef Name="Mes_Id" />
+          </Key>
+          <Property Name="Mes_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus_Id" Type="int" Nullable="false" />
+          <Property Name="No_Mes" Type="int" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Cat_Registro_Civil">
+          <Key>
+            <PropertyRef Name="Registro_Civil_Id" />
+          </Key>
+          <Property Name="Registro_Civil_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus_Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Longitud" Type="numeric" Precision="18" Scale="15" />
+          <Property Name="Latitud" Type="numeric" Precision="18" Scale="15" />
+          <Property Name="Horario_Inicio" Type="time" Precision="7" />
+          <Property Name="Horario_Termino" Type="time" Precision="7" />
+          <Property Name="Lunes" Type="bit" />
+          <Property Name="Martes" Type="bit" />
+          <Property Name="Miercoles" Type="bit" />
+          <Property Name="Jueves" Type="bit" />
+          <Property Name="Viernes" Type="bit" />
+          <Property Name="Sabado" Type="bit" />
+          <Property Name="Domingo" Type="bit" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Sitio_Web_URL" Type="varchar" MaxLength="250" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="250" />
+          <Property Name="Tramite" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Cat_Relacion_Medico_Hospital">
+          <Key>
+            <PropertyRef Name="Relacion_Id" />
+          </Key>
+          <Property Name="Relacion_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Medico_Id" Type="int" Nullable="false" />
+          <Property Name="Hospital_Id" Type="int" Nullable="false" />
+          <Property Name="Costo_Consulta" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Cat_Tipo_Instalacion">
+          <Key>
+            <PropertyRef Name="Tipo_Instalacion_Id" />
+          </Key>
+          <Property Name="Tipo_Instalacion_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus_Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Cat_Tramites">
+          <Key>
+            <PropertyRef Name="Tramite_Id" />
+          </Key>
+          <Property Name="Tramite_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="Estatus_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cat_Tramites_Pasos">
+          <Key>
+            <PropertyRef Name="Paso_Id" />
+          </Key>
+          <Property Name="Paso_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tramite_Id" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar(max)" />
+          <Property Name="Orden" Type="int" />
+          <Property Name="Imagen" Type="image" />
+          <Property Name="Url_Imagen" Type="varchar" MaxLength="255" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Cat_Ubicaciones">
+          <Key>
+            <PropertyRef Name="Ubicacion_Id" />
+          </Key>
+          <Property Name="Ubicacion_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo_Instalacion_Id" Type="int" Nullable="false" />
+          <Property Name="Estatus_Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Longitud" Type="numeric" Precision="18" Scale="15" />
+          <Property Name="Latitud" Type="numeric" Precision="18" Scale="15" />
+          <Property Name="Horario_Inicio" Type="time" Precision="7" />
+          <Property Name="Horario_Termino" Type="time" Precision="7" />
+          <Property Name="Lunes" Type="bit" />
+          <Property Name="Martes" Type="bit" />
+          <Property Name="Miercoles" Type="bit" />
+          <Property Name="Jueves" Type="bit" />
+          <Property Name="Viernes" Type="bit" />
+          <Property Name="Sabado" Type="bit" />
+          <Property Name="Domingo" Type="bit" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="Emergencias" Type="bit" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="Telefono_Urgencias" Type="varchar" MaxLength="50" />
+          <Property Name="Sitio_Web_URL" Type="varchar" MaxLength="250" />
+          <Property Name="Observaciones" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Cat_Vacunas">
+          <Key>
+            <PropertyRef Name="Vacuna_Id" />
+          </Key>
+          <Property Name="Vacuna_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estatus_Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Ope_Aplicacion_Vacunas">
+          <Key>
+            <PropertyRef Name="Aplicacion_Vacuna_ID" />
+          </Key>
+          <Property Name="Aplicacion_Vacuna_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Relacion_Id" Type="int" />
+          <Property Name="BebeId" Type="int" />
+          <Property Name="Fecha_Agenda_Vacuna" Type="smalldatetime" />
+          <Property Name="Fecha_Aplica_Vacuna" Type="smalldatetime" />
+          <Property Name="Fecha_Creo" Type="smalldatetime" />
+          <Property Name="Fecha_Modifica" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Ope_Cartilla_Vacunacion">
+          <Key>
+            <PropertyRef Name="Relacion_Id" />
+          </Key>
+          <Property Name="Relacion_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mes_Id" Type="int" Nullable="false" />
+          <Property Name="Vacuna_Id" Type="int" Nullable="false" />
+          <Property Name="Usuario_Creo" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Creo" Type="datetime" />
+          <Property Name="Usuario_Modifico" Type="varchar" MaxLength="100" />
+          <Property Name="Fecha_Modifico" Type="datetime" />
+          <Property Name="Dosis" Type="varchar" MaxLength="50" />
+          <Property Name="Enfermedad" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Ope_Recordatorios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="250" />
+          <Property Name="Intervalo" Type="time" Precision="7" />
+          <Property Name="Dias" Type="int" />
+          <Property Name="Inicio" Type="smalldatetime" />
+          <Property Name="BebeId" Type="int" />
+          <Property Name="Tipo" Type="varchar" MaxLength="25" />
+          <Property Name="MedicoId" Type="int" />
+          <Property Name="Informacion" Type="varchar" MaxLength="1000" />
+          <Property Name="ImagenUrl" Type="varchar" MaxLength="250" />
+          <Property Name="DoctorNoRegistrado" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Ope_Recordatorios_Detalles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="smalldatetime" />
+          <Property Name="RecordatorioId" Type="int" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsuarioId" Type="int" />
+          <Property Name="Palabra" Type="varchar" MaxLength="25" />
+          <Property Name="FechaCreo" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="smalldatetime" />
+        </EntityType>
+        <Association Name="FK__Apl_Bebes__Usuar__4D5F7D71">
+          <End Role="Apl_Usuarios_Movil" Type="Self.Apl_Usuarios_Movil" Multiplicity="0..1" />
+          <End Role="Apl_Bebes" Type="Self.Apl_Bebes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Usuarios_Movil">
+              <PropertyRef Name="UsuarioMovilId" />
+            </Principal>
+            <Dependent Role="Apl_Bebes">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Histo__BebeI__0B5CAFEA">
+          <End Role="Apl_Bebes" Type="Self.Apl_Bebes" Multiplicity="1" />
+          <End Role="Apl_Historial_Bebes" Type="Self.Apl_Historial_Bebes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Bebes">
+              <PropertyRef Name="BebeId" />
+            </Principal>
+            <Dependent Role="Apl_Historial_Bebes">
+              <PropertyRef Name="BebeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Histo__Recor__0C50D423">
+          <End Role="Ope_Recordatorios_Detalles" Type="Self.Ope_Recordatorios_Detalles" Multiplicity="0..1" />
+          <End Role="Apl_Historial_Bebes" Type="Self.Apl_Historial_Bebes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ope_Recordatorios_Detalles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apl_Historial_Bebes">
+              <PropertyRef Name="RecordatorioDetalleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Histo__Recor__0D44F85C">
+          <End Role="Ope_Recordatorios" Type="Self.Ope_Recordatorios" Multiplicity="0..1" />
+          <End Role="Apl_Historial_Bebes" Type="Self.Apl_Historial_Bebes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ope_Recordatorios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apl_Historial_Bebes">
+              <PropertyRef Name="RecordatorioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Opini__Medic__08B54D69">
+          <End Role="Cat_Medicos" Type="Self.Cat_Medicos" Multiplicity="0..1" />
+          <End Role="Apl_Opiniones" Type="Self.Apl_Opiniones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Medicos">
+              <PropertyRef Name="Medico_Id" />
+            </Principal>
+            <Dependent Role="Apl_Opiniones">
+              <PropertyRef Name="Medico_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Opini__Usuar__2057CCD0">
+          <End Role="Apl_Usuarios_Movil" Type="Self.Apl_Usuarios_Movil" Multiplicity="0..1" />
+          <End Role="Apl_Opiniones" Type="Self.Apl_Opiniones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Usuarios_Movil">
+              <PropertyRef Name="UsuarioMovilId" />
+            </Principal>
+            <Dependent Role="Apl_Opiniones">
+              <PropertyRef Name="UsuarioMoviId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cat_Medic__Hospi__114A936A">
+          <End Role="Cat_Ubicaciones" Type="Self.Cat_Ubicaciones" Multiplicity="0..1" />
+          <End Role="Cat_Medicos" Type="Self.Cat_Medicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Ubicaciones">
+              <PropertyRef Name="Ubicacion_Id" />
+            </Principal>
+            <Dependent Role="Cat_Medicos">
+              <PropertyRef Name="Hospital_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ope_Recor__BebeI__662B2B3B">
+          <End Role="Apl_Bebes" Type="Self.Apl_Bebes" Multiplicity="0..1" />
+          <End Role="Ope_Recordatorios" Type="Self.Ope_Recordatorios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Bebes">
+              <PropertyRef Name="BebeId" />
+            </Principal>
+            <Dependent Role="Ope_Recordatorios">
+              <PropertyRef Name="BebeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ope_Recor__Medic__6CD828CA">
+          <End Role="Cat_Medicos" Type="Self.Cat_Medicos" Multiplicity="0..1" />
+          <End Role="Ope_Recordatorios" Type="Self.Ope_Recordatorios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Medicos">
+              <PropertyRef Name="Medico_Id" />
+            </Principal>
+            <Dependent Role="Ope_Recordatorios">
+              <PropertyRef Name="MedicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ope_Recor__Recor__6AEFE058">
+          <End Role="Ope_Recordatorios" Type="Self.Ope_Recordatorios" Multiplicity="0..1" />
+          <End Role="Ope_Recordatorios_Detalles" Type="Self.Ope_Recordatorios_Detalles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ope_Recordatorios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ope_Recordatorios_Detalles">
+              <PropertyRef Name="RecordatorioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tags__UsuarioId__7E02B4CC">
+          <End Role="Apl_Usuarios_Movil" Type="Self.Apl_Usuarios_Movil" Multiplicity="0..1" />
+          <End Role="Tags" Type="Self.Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Usuarios_Movil">
+              <PropertyRef Name="UsuarioMovilId" />
+            </Principal>
+            <Dependent Role="Tags">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_APL_ACCESO_CAT_MENUS1">
+          <End Role="Apl_Menus" Type="Self.Apl_Menus" Multiplicity="1" />
+          <End Role="Apl_Accesos" Type="Self.Apl_Accesos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Menus">
+              <PropertyRef Name="Menu_ID" />
+            </Principal>
+            <Dependent Role="Apl_Accesos">
+              <PropertyRef Name="Menu_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Apl_Rel_Usuarios_Roles_Apl_Roles">
+          <End Role="Apl_Roles" Type="Self.Apl_Roles" Multiplicity="1" />
+          <End Role="Apl_Rel_Usuarios_Roles" Type="Self.Apl_Rel_Usuarios_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Roles">
+              <PropertyRef Name="Rol_ID" />
+              <PropertyRef Name="Empresa_ID" />
+            </Principal>
+            <Dependent Role="Apl_Rel_Usuarios_Roles">
+              <PropertyRef Name="Rol_ID" />
+              <PropertyRef Name="Empresa_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Apl_Usuarios_Apl_Tipo_Usuarios">
+          <End Role="Apl_Tipos_Usuarios" Type="Self.Apl_Tipos_Usuarios" Multiplicity="1" />
+          <End Role="Apl_Usuarios" Type="Self.Apl_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Tipos_Usuarios">
+              <PropertyRef Name="Tipo_Usuario_ID" />
+            </Principal>
+            <Dependent Role="Apl_Usuarios">
+              <PropertyRef Name="Tipo_Usuario_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bebe_aplicacion_vacuna">
+          <End Role="Apl_Bebes" Type="Self.Apl_Bebes" Multiplicity="0..1" />
+          <End Role="Ope_Aplicacion_Vacunas" Type="Self.Ope_Aplicacion_Vacunas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Bebes">
+              <PropertyRef Name="BebeId" />
+            </Principal>
+            <Dependent Role="Ope_Aplicacion_Vacunas">
+              <PropertyRef Name="BebeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cartilla_aplicacion_vacuna">
+          <End Role="Ope_Cartilla_Vacunacion" Type="Self.Ope_Cartilla_Vacunacion" Multiplicity="0..1" />
+          <End Role="Ope_Aplicacion_Vacunas" Type="Self.Ope_Aplicacion_Vacunas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ope_Cartilla_Vacunacion">
+              <PropertyRef Name="Relacion_Id" />
+            </Principal>
+            <Dependent Role="Ope_Aplicacion_Vacunas">
+              <PropertyRef Name="Relacion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Consejos_Medicos_Apl_Estatus">
+          <End Role="Apl_Estatus" Type="Self.Apl_Estatus" Multiplicity="1" />
+          <End Role="Cat_Consejos_Medicos" Type="Self.Cat_Consejos_Medicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Consejos_Medicos">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Especialidades_Apl_Estatus">
+          <End Role="Apl_Estatus" Type="Self.Apl_Estatus" Multiplicity="1" />
+          <End Role="Cat_Especialidades" Type="Self.Cat_Especialidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Especialidades">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Horarios_Registro_Civil_Cat_Registro_Civil">
+          <End Role="Cat_Registro_Civil" Type="Self.Cat_Registro_Civil" Multiplicity="0..1" />
+          <End Role="Cat_Horarios_Registro_Civil" Type="Self.Cat_Horarios_Registro_Civil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Registro_Civil">
+              <PropertyRef Name="Registro_Civil_Id" />
+            </Principal>
+            <Dependent Role="Cat_Horarios_Registro_Civil">
+              <PropertyRef Name="Registro_Civil_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Horarios_Ubicaciones_Cat_Ubicaciones">
+          <End Role="Cat_Ubicaciones" Type="Self.Cat_Ubicaciones" Multiplicity="0..1" />
+          <End Role="Cat_Horarios_Ubicaciones" Type="Self.Cat_Horarios_Ubicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Ubicaciones">
+              <PropertyRef Name="Ubicacion_Id" />
+            </Principal>
+            <Dependent Role="Cat_Horarios_Ubicaciones">
+              <PropertyRef Name="Ubicacion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Medicos_Apl_Estatus">
+          <End Role="Apl_Estatus" Type="Self.Apl_Estatus" Multiplicity="1" />
+          <End Role="Cat_Medicos" Type="Self.Cat_Medicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Medicos">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Medicos_Cat_Especialidades">
+          <End Role="Cat_Especialidades" Type="Self.Cat_Especialidades" Multiplicity="1" />
+          <End Role="Cat_Medicos" Type="Self.Cat_Medicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Especialidades">
+              <PropertyRef Name="Especialidad_Id" />
+            </Principal>
+            <Dependent Role="Cat_Medicos">
+              <PropertyRef Name="Especialidad_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAT_MENUS_APL_CAT_MODULOS">
+          <End Role="Apl_Modulos" Type="Self.Apl_Modulos" Multiplicity="0..1" />
+          <End Role="Apl_Menus" Type="Self.Apl_Menus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Modulos">
+              <PropertyRef Name="Modulo_ID" />
+            </Principal>
+            <Dependent Role="Apl_Menus">
+              <PropertyRef Name="Modulo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Mes_Aplicacion_Vacuna_Apl_Estatus">
+          <End Role="Apl_Estatus" Type="Self.Apl_Estatus" Multiplicity="1" />
+          <End Role="Cat_Mes_Aplicacion_Vacuna" Type="Self.Cat_Mes_Aplicacion_Vacuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Mes_Aplicacion_Vacuna">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Registro_Civil_Apl_Estatus">
+          <End Role="Apl_Estatus" Type="Self.Apl_Estatus" Multiplicity="1" />
+          <End Role="Cat_Registro_Civil" Type="Self.Cat_Registro_Civil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Registro_Civil">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Relacion_Medico_Hospital_Cat_Medicos">
+          <End Role="Cat_Medicos" Type="Self.Cat_Medicos" Multiplicity="1" />
+          <End Role="Cat_Relacion_Medico_Hospital" Type="Self.Cat_Relacion_Medico_Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Medicos">
+              <PropertyRef Name="Medico_Id" />
+            </Principal>
+            <Dependent Role="Cat_Relacion_Medico_Hospital">
+              <PropertyRef Name="Medico_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Relacion_Medico_Hospital_Cat_Ubicaciones">
+          <End Role="Cat_Ubicaciones" Type="Self.Cat_Ubicaciones" Multiplicity="1" />
+          <End Role="Cat_Relacion_Medico_Hospital" Type="Self.Cat_Relacion_Medico_Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Ubicaciones">
+              <PropertyRef Name="Ubicacion_Id" />
+            </Principal>
+            <Dependent Role="Cat_Relacion_Medico_Hospital">
+              <PropertyRef Name="Hospital_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Tipo_Instalacion_Apl_Estatus">
+          <End Role="Apl_Estatus" Type="Self.Apl_Estatus" Multiplicity="1" />
+          <End Role="Cat_Tipo_Instalacion" Type="Self.Cat_Tipo_Instalacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Tipo_Instalacion">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Tramites_Pasos_Cat_Tramites">
+          <End Role="Cat_Tramites" Type="Self.Cat_Tramites" Multiplicity="1" />
+          <End Role="Cat_Tramites_Pasos" Type="Self.Cat_Tramites_Pasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Tramites">
+              <PropertyRef Name="Tramite_Id" />
+            </Principal>
+            <Dependent Role="Cat_Tramites_Pasos">
+              <PropertyRef Name="Tramite_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Ubicaciones_Apl_Estatus">
+          <End Role="Apl_Estatus" Type="Self.Apl_Estatus" Multiplicity="1" />
+          <End Role="Cat_Ubicaciones" Type="Self.Cat_Ubicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Ubicaciones">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Ubicaciones_Cat_Tipo_Instalacion">
+          <End Role="Cat_Tipo_Instalacion" Type="Self.Cat_Tipo_Instalacion" Multiplicity="1" />
+          <End Role="Cat_Ubicaciones" Type="Self.Cat_Ubicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Tipo_Instalacion">
+              <PropertyRef Name="Tipo_Instalacion_Id" />
+            </Principal>
+            <Dependent Role="Cat_Ubicaciones">
+              <PropertyRef Name="Tipo_Instalacion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Vacunas_Apl_Estatus">
+          <End Role="Apl_Estatus" Type="Self.Apl_Estatus" Multiplicity="1" />
+          <End Role="Cat_Vacunas" Type="Self.Cat_Vacunas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Vacunas">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkUsuarioRoleConfig">
+          <End Role="Apl_Usuarios" Type="Self.Apl_Usuarios" Multiplicity="1" />
+          <End Role="Apl_Rel_Usuarios_Roles" Type="Self.Apl_Rel_Usuarios_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Usuarios">
+              <PropertyRef Name="Usuario_ID" />
+            </Principal>
+            <Dependent Role="Apl_Rel_Usuarios_Roles">
+              <PropertyRef Name="Usuario_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Tramites_Estatus">
+          <End Role="Apl_Estatus" Type="Self.Apl_Estatus" Multiplicity="1" />
+          <End Role="Cat_Tramites" Type="Self.Cat_Tramites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Tramites">
+              <PropertyRef Name="Estatus_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ERP_EJE_CENTRALModelStoreContainer">
+          <EntitySet Name="Apl_Accesos" EntityType="Self.Apl_Accesos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Bebes" EntityType="Self.Apl_Bebes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Estatus" EntityType="Self.Apl_Estatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Historial_Bebes" EntityType="Self.Apl_Historial_Bebes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Menus" EntityType="Self.Apl_Menus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Modulos" EntityType="Self.Apl_Modulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Opiniones" EntityType="Self.Apl_Opiniones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Parametros_Correo" EntityType="Self.Apl_Parametros_Correo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Registro_Accesos" EntityType="Self.Apl_Registro_Accesos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Rel_Usuarios_Roles" EntityType="Self.Apl_Rel_Usuarios_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Roles" EntityType="Self.Apl_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Roles_Sucursales" EntityType="Self.Apl_Roles_Sucursales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Tipos_Usuarios" EntityType="Self.Apl_Tipos_Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Usuarios" EntityType="Self.Apl_Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Usuarios_Movil" EntityType="Self.Apl_Usuarios_Movil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apl_Usuarios_Password" EntityType="Self.Apl_Usuarios_Password" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Consejos_Medicos" EntityType="Self.Cat_Consejos_Medicos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Empleados" EntityType="Self.Cat_Empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Especialidades" EntityType="Self.Cat_Especialidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Horarios_Registro_Civil" EntityType="Self.Cat_Horarios_Registro_Civil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Horarios_Ubicaciones" EntityType="Self.Cat_Horarios_Ubicaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Medicos" EntityType="Self.Cat_Medicos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Mes_Aplicacion_Vacuna" EntityType="Self.Cat_Mes_Aplicacion_Vacuna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Registro_Civil" EntityType="Self.Cat_Registro_Civil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Relacion_Medico_Hospital" EntityType="Self.Cat_Relacion_Medico_Hospital" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Tipo_Instalacion" EntityType="Self.Cat_Tipo_Instalacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Tramites" EntityType="Self.Cat_Tramites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Tramites_Pasos" EntityType="Self.Cat_Tramites_Pasos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Ubicaciones" EntityType="Self.Cat_Ubicaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cat_Vacunas" EntityType="Self.Cat_Vacunas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ope_Aplicacion_Vacunas" EntityType="Self.Ope_Aplicacion_Vacunas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ope_Cartilla_Vacunacion" EntityType="Self.Ope_Cartilla_Vacunacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ope_Recordatorios" EntityType="Self.Ope_Recordatorios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ope_Recordatorios_Detalles" EntityType="Self.Ope_Recordatorios_Detalles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="test" EntityType="Self.test" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Apl_Bebes__Usuar__4D5F7D71" Association="Self.FK__Apl_Bebes__Usuar__4D5F7D71">
+            <End Role="Apl_Usuarios_Movil" EntitySet="Apl_Usuarios_Movil" />
+            <End Role="Apl_Bebes" EntitySet="Apl_Bebes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Histo__BebeI__0B5CAFEA" Association="Self.FK__Apl_Histo__BebeI__0B5CAFEA">
+            <End Role="Apl_Bebes" EntitySet="Apl_Bebes" />
+            <End Role="Apl_Historial_Bebes" EntitySet="Apl_Historial_Bebes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Histo__Recor__0C50D423" Association="Self.FK__Apl_Histo__Recor__0C50D423">
+            <End Role="Ope_Recordatorios_Detalles" EntitySet="Ope_Recordatorios_Detalles" />
+            <End Role="Apl_Historial_Bebes" EntitySet="Apl_Historial_Bebes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Histo__Recor__0D44F85C" Association="Self.FK__Apl_Histo__Recor__0D44F85C">
+            <End Role="Ope_Recordatorios" EntitySet="Ope_Recordatorios" />
+            <End Role="Apl_Historial_Bebes" EntitySet="Apl_Historial_Bebes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Opini__Medic__08B54D69" Association="Self.FK__Apl_Opini__Medic__08B54D69">
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+            <End Role="Apl_Opiniones" EntitySet="Apl_Opiniones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Opini__Usuar__2057CCD0" Association="Self.FK__Apl_Opini__Usuar__2057CCD0">
+            <End Role="Apl_Usuarios_Movil" EntitySet="Apl_Usuarios_Movil" />
+            <End Role="Apl_Opiniones" EntitySet="Apl_Opiniones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cat_Medic__Hospi__114A936A" Association="Self.FK__Cat_Medic__Hospi__114A936A">
+            <End Role="Cat_Ubicaciones" EntitySet="Cat_Ubicaciones" />
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ope_Recor__BebeI__662B2B3B" Association="Self.FK__Ope_Recor__BebeI__662B2B3B">
+            <End Role="Apl_Bebes" EntitySet="Apl_Bebes" />
+            <End Role="Ope_Recordatorios" EntitySet="Ope_Recordatorios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ope_Recor__Medic__6CD828CA" Association="Self.FK__Ope_Recor__Medic__6CD828CA">
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+            <End Role="Ope_Recordatorios" EntitySet="Ope_Recordatorios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ope_Recor__Recor__6AEFE058" Association="Self.FK__Ope_Recor__Recor__6AEFE058">
+            <End Role="Ope_Recordatorios" EntitySet="Ope_Recordatorios" />
+            <End Role="Ope_Recordatorios_Detalles" EntitySet="Ope_Recordatorios_Detalles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tags__UsuarioId__7E02B4CC" Association="Self.FK__Tags__UsuarioId__7E02B4CC">
+            <End Role="Apl_Usuarios_Movil" EntitySet="Apl_Usuarios_Movil" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_APL_ACCESO_CAT_MENUS1" Association="Self.FK_APL_ACCESO_CAT_MENUS1">
+            <End Role="Apl_Menus" EntitySet="Apl_Menus" />
+            <End Role="Apl_Accesos" EntitySet="Apl_Accesos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Apl_Rel_Usuarios_Roles_Apl_Roles" Association="Self.FK_Apl_Rel_Usuarios_Roles_Apl_Roles">
+            <End Role="Apl_Roles" EntitySet="Apl_Roles" />
+            <End Role="Apl_Rel_Usuarios_Roles" EntitySet="Apl_Rel_Usuarios_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Apl_Usuarios_Apl_Tipo_Usuarios" Association="Self.FK_Apl_Usuarios_Apl_Tipo_Usuarios">
+            <End Role="Apl_Tipos_Usuarios" EntitySet="Apl_Tipos_Usuarios" />
+            <End Role="Apl_Usuarios" EntitySet="Apl_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bebe_aplicacion_vacuna" Association="Self.fk_bebe_aplicacion_vacuna">
+            <End Role="Apl_Bebes" EntitySet="Apl_Bebes" />
+            <End Role="Ope_Aplicacion_Vacunas" EntitySet="Ope_Aplicacion_Vacunas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cartilla_aplicacion_vacuna" Association="Self.fk_cartilla_aplicacion_vacuna">
+            <End Role="Ope_Cartilla_Vacunacion" EntitySet="Ope_Cartilla_Vacunacion" />
+            <End Role="Ope_Aplicacion_Vacunas" EntitySet="Ope_Aplicacion_Vacunas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Consejos_Medicos_Apl_Estatus" Association="Self.FK_Cat_Consejos_Medicos_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Consejos_Medicos" EntitySet="Cat_Consejos_Medicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Especialidades_Apl_Estatus" Association="Self.FK_Cat_Especialidades_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Especialidades" EntitySet="Cat_Especialidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Horarios_Registro_Civil_Cat_Registro_Civil" Association="Self.FK_Cat_Horarios_Registro_Civil_Cat_Registro_Civil">
+            <End Role="Cat_Registro_Civil" EntitySet="Cat_Registro_Civil" />
+            <End Role="Cat_Horarios_Registro_Civil" EntitySet="Cat_Horarios_Registro_Civil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Horarios_Ubicaciones_Cat_Ubicaciones" Association="Self.FK_Cat_Horarios_Ubicaciones_Cat_Ubicaciones">
+            <End Role="Cat_Ubicaciones" EntitySet="Cat_Ubicaciones" />
+            <End Role="Cat_Horarios_Ubicaciones" EntitySet="Cat_Horarios_Ubicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Medicos_Apl_Estatus" Association="Self.FK_Cat_Medicos_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Medicos_Cat_Especialidades" Association="Self.FK_Cat_Medicos_Cat_Especialidades">
+            <End Role="Cat_Especialidades" EntitySet="Cat_Especialidades" />
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAT_MENUS_APL_CAT_MODULOS" Association="Self.FK_CAT_MENUS_APL_CAT_MODULOS">
+            <End Role="Apl_Modulos" EntitySet="Apl_Modulos" />
+            <End Role="Apl_Menus" EntitySet="Apl_Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Mes_Aplicacion_Vacuna_Apl_Estatus" Association="Self.FK_Cat_Mes_Aplicacion_Vacuna_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Mes_Aplicacion_Vacuna" EntitySet="Cat_Mes_Aplicacion_Vacuna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Registro_Civil_Apl_Estatus" Association="Self.FK_Cat_Registro_Civil_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Registro_Civil" EntitySet="Cat_Registro_Civil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Relacion_Medico_Hospital_Cat_Medicos" Association="Self.FK_Cat_Relacion_Medico_Hospital_Cat_Medicos">
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+            <End Role="Cat_Relacion_Medico_Hospital" EntitySet="Cat_Relacion_Medico_Hospital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Relacion_Medico_Hospital_Cat_Ubicaciones" Association="Self.FK_Cat_Relacion_Medico_Hospital_Cat_Ubicaciones">
+            <End Role="Cat_Ubicaciones" EntitySet="Cat_Ubicaciones" />
+            <End Role="Cat_Relacion_Medico_Hospital" EntitySet="Cat_Relacion_Medico_Hospital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Tipo_Instalacion_Apl_Estatus" Association="Self.FK_Cat_Tipo_Instalacion_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Tipo_Instalacion" EntitySet="Cat_Tipo_Instalacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Tramites_Pasos_Cat_Tramites" Association="Self.FK_Cat_Tramites_Pasos_Cat_Tramites">
+            <End Role="Cat_Tramites" EntitySet="Cat_Tramites" />
+            <End Role="Cat_Tramites_Pasos" EntitySet="Cat_Tramites_Pasos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Ubicaciones_Apl_Estatus" Association="Self.FK_Cat_Ubicaciones_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Ubicaciones" EntitySet="Cat_Ubicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Ubicaciones_Cat_Tipo_Instalacion" Association="Self.FK_Cat_Ubicaciones_Cat_Tipo_Instalacion">
+            <End Role="Cat_Tipo_Instalacion" EntitySet="Cat_Tipo_Instalacion" />
+            <End Role="Cat_Ubicaciones" EntitySet="Cat_Ubicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Vacunas_Apl_Estatus" Association="Self.FK_Cat_Vacunas_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Vacunas" EntitySet="Cat_Vacunas" />
+          </AssociationSet>
+          <AssociationSet Name="fkUsuarioRoleConfig" Association="Self.fkUsuarioRoleConfig">
+            <End Role="Apl_Usuarios" EntitySet="Apl_Usuarios" />
+            <End Role="Apl_Rel_Usuarios_Roles" EntitySet="Apl_Rel_Usuarios_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="Tramites_Estatus" Association="Self.Tramites_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Tramites" EntitySet="Cat_Tramites" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ERP_EJE_CENTRALModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ERP_EJE_CENTRALEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Apl_Accesos" EntityType="ERP_EJE_CENTRALModel.Apl_Accesos" />
+          <EntitySet Name="Apl_Bebes" EntityType="ERP_EJE_CENTRALModel.Apl_Bebes" />
+          <EntitySet Name="Apl_Estatus" EntityType="ERP_EJE_CENTRALModel.Apl_Estatus" />
+          <EntitySet Name="Apl_Historial_Bebes" EntityType="ERP_EJE_CENTRALModel.Apl_Historial_Bebes" />
+          <EntitySet Name="Apl_Menus" EntityType="ERP_EJE_CENTRALModel.Apl_Menus" />
+          <EntitySet Name="Apl_Modulos" EntityType="ERP_EJE_CENTRALModel.Apl_Modulos" />
+          <EntitySet Name="Apl_Opiniones" EntityType="ERP_EJE_CENTRALModel.Apl_Opiniones" />
+          <EntitySet Name="Apl_Parametros_Correo" EntityType="ERP_EJE_CENTRALModel.Apl_Parametros_Correo" />
+          <EntitySet Name="Apl_Registro_Accesos" EntityType="ERP_EJE_CENTRALModel.Apl_Registro_Accesos" />
+          <EntitySet Name="Apl_Rel_Usuarios_Roles" EntityType="ERP_EJE_CENTRALModel.Apl_Rel_Usuarios_Roles" />
+          <EntitySet Name="Apl_Roles" EntityType="ERP_EJE_CENTRALModel.Apl_Roles" />
+          <EntitySet Name="Apl_Roles_Sucursales" EntityType="ERP_EJE_CENTRALModel.Apl_Roles_Sucursales" />
+          <EntitySet Name="Apl_Tipos_Usuarios" EntityType="ERP_EJE_CENTRALModel.Apl_Tipos_Usuarios" />
+          <EntitySet Name="Apl_Usuarios_Movil" EntityType="ERP_EJE_CENTRALModel.Apl_Usuarios_Movil" />
+          <EntitySet Name="Apl_Usuarios_Password" EntityType="ERP_EJE_CENTRALModel.Apl_Usuarios_Password" />
+          <EntitySet Name="Cat_Consejos_Medicos" EntityType="ERP_EJE_CENTRALModel.Cat_Consejos_Medicos" />
+          <EntitySet Name="Cat_Empleados" EntityType="ERP_EJE_CENTRALModel.Cat_Empleados" />
+          <EntitySet Name="Cat_Especialidades" EntityType="ERP_EJE_CENTRALModel.Cat_Especialidades" />
+          <EntitySet Name="Cat_Horarios_Registro_Civil" EntityType="ERP_EJE_CENTRALModel.Cat_Horarios_Registro_Civil" />
+          <EntitySet Name="Cat_Horarios_Ubicaciones" EntityType="ERP_EJE_CENTRALModel.Cat_Horarios_Ubicaciones" />
+          <EntitySet Name="Cat_Medicos" EntityType="ERP_EJE_CENTRALModel.Cat_Medicos" />
+          <EntitySet Name="Cat_Mes_Aplicacion_Vacuna" EntityType="ERP_EJE_CENTRALModel.Cat_Mes_Aplicacion_Vacuna" />
+          <EntitySet Name="Cat_Registro_Civil" EntityType="ERP_EJE_CENTRALModel.Cat_Registro_Civil" />
+          <EntitySet Name="Cat_Relacion_Medico_Hospital" EntityType="ERP_EJE_CENTRALModel.Cat_Relacion_Medico_Hospital" />
+          <EntitySet Name="Cat_Tipo_Instalacion" EntityType="ERP_EJE_CENTRALModel.Cat_Tipo_Instalacion" />
+          <EntitySet Name="Cat_Tramites_Pasos" EntityType="ERP_EJE_CENTRALModel.Cat_Tramites_Pasos" />
+          <EntitySet Name="Cat_Ubicaciones" EntityType="ERP_EJE_CENTRALModel.Cat_Ubicaciones" />
+          <EntitySet Name="Cat_Vacunas" EntityType="ERP_EJE_CENTRALModel.Cat_Vacunas" />
+          <EntitySet Name="Ope_Aplicacion_Vacunas" EntityType="ERP_EJE_CENTRALModel.Ope_Aplicacion_Vacunas" />
+          <EntitySet Name="Ope_Cartilla_Vacunacion" EntityType="ERP_EJE_CENTRALModel.Ope_Cartilla_Vacunacion" />
+          <EntitySet Name="Ope_Recordatorios" EntityType="ERP_EJE_CENTRALModel.Ope_Recordatorios" />
+          <EntitySet Name="Ope_Recordatorios_Detalles" EntityType="ERP_EJE_CENTRALModel.Ope_Recordatorios_Detalles" />
+          <EntitySet Name="Tags" EntityType="ERP_EJE_CENTRALModel.Tag" />
+          <EntitySet Name="tests" EntityType="ERP_EJE_CENTRALModel.test" />
+          <AssociationSet Name="FK_APL_ACCESO_CAT_MENUS1" Association="ERP_EJE_CENTRALModel.FK_APL_ACCESO_CAT_MENUS1">
+            <End Role="Apl_Menus" EntitySet="Apl_Menus" />
+            <End Role="Apl_Accesos" EntitySet="Apl_Accesos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Bebes__Usuar__4D5F7D71" Association="ERP_EJE_CENTRALModel.FK__Apl_Bebes__Usuar__4D5F7D71">
+            <End Role="Apl_Usuarios_Movil" EntitySet="Apl_Usuarios_Movil" />
+            <End Role="Apl_Bebes" EntitySet="Apl_Bebes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Histo__BebeI__0B5CAFEA" Association="ERP_EJE_CENTRALModel.FK__Apl_Histo__BebeI__0B5CAFEA">
+            <End Role="Apl_Bebes" EntitySet="Apl_Bebes" />
+            <End Role="Apl_Historial_Bebes" EntitySet="Apl_Historial_Bebes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ope_Recor__BebeI__662B2B3B" Association="ERP_EJE_CENTRALModel.FK__Ope_Recor__BebeI__662B2B3B">
+            <End Role="Apl_Bebes" EntitySet="Apl_Bebes" />
+            <End Role="Ope_Recordatorios" EntitySet="Ope_Recordatorios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bebe_aplicacion_vacuna" Association="ERP_EJE_CENTRALModel.fk_bebe_aplicacion_vacuna">
+            <End Role="Apl_Bebes" EntitySet="Apl_Bebes" />
+            <End Role="Ope_Aplicacion_Vacunas" EntitySet="Ope_Aplicacion_Vacunas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Consejos_Medicos_Apl_Estatus" Association="ERP_EJE_CENTRALModel.FK_Cat_Consejos_Medicos_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Consejos_Medicos" EntitySet="Cat_Consejos_Medicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Especialidades_Apl_Estatus" Association="ERP_EJE_CENTRALModel.FK_Cat_Especialidades_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Especialidades" EntitySet="Cat_Especialidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Medicos_Apl_Estatus" Association="ERP_EJE_CENTRALModel.FK_Cat_Medicos_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Mes_Aplicacion_Vacuna_Apl_Estatus" Association="ERP_EJE_CENTRALModel.FK_Cat_Mes_Aplicacion_Vacuna_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Mes_Aplicacion_Vacuna" EntitySet="Cat_Mes_Aplicacion_Vacuna" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Registro_Civil_Apl_Estatus" Association="ERP_EJE_CENTRALModel.FK_Cat_Registro_Civil_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Registro_Civil" EntitySet="Cat_Registro_Civil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Tipo_Instalacion_Apl_Estatus" Association="ERP_EJE_CENTRALModel.FK_Cat_Tipo_Instalacion_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Tipo_Instalacion" EntitySet="Cat_Tipo_Instalacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Ubicaciones_Apl_Estatus" Association="ERP_EJE_CENTRALModel.FK_Cat_Ubicaciones_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Ubicaciones" EntitySet="Cat_Ubicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Vacunas_Apl_Estatus" Association="ERP_EJE_CENTRALModel.FK_Cat_Vacunas_Apl_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Vacunas" EntitySet="Cat_Vacunas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Histo__Recor__0C50D423" Association="ERP_EJE_CENTRALModel.FK__Apl_Histo__Recor__0C50D423">
+            <End Role="Ope_Recordatorios_Detalles" EntitySet="Ope_Recordatorios_Detalles" />
+            <End Role="Apl_Historial_Bebes" EntitySet="Apl_Historial_Bebes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Histo__Recor__0D44F85C" Association="ERP_EJE_CENTRALModel.FK__Apl_Histo__Recor__0D44F85C">
+            <End Role="Ope_Recordatorios" EntitySet="Ope_Recordatorios" />
+            <End Role="Apl_Historial_Bebes" EntitySet="Apl_Historial_Bebes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CAT_MENUS_APL_CAT_MODULOS" Association="ERP_EJE_CENTRALModel.FK_CAT_MENUS_APL_CAT_MODULOS">
+            <End Role="Apl_Modulos" EntitySet="Apl_Modulos" />
+            <End Role="Apl_Menus" EntitySet="Apl_Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Opini__Medic__214BF109" Association="ERP_EJE_CENTRALModel.FK__Apl_Opini__Medic__214BF109">
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+            <End Role="Apl_Opiniones" EntitySet="Apl_Opiniones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Apl_Opini__Usuar__2057CCD0" Association="ERP_EJE_CENTRALModel.FK__Apl_Opini__Usuar__2057CCD0">
+            <End Role="Apl_Usuarios_Movil" EntitySet="Apl_Usuarios_Movil" />
+            <End Role="Apl_Opiniones" EntitySet="Apl_Opiniones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Apl_Rel_Usuarios_Roles_Apl_Roles" Association="ERP_EJE_CENTRALModel.FK_Apl_Rel_Usuarios_Roles_Apl_Roles">
+            <End Role="Apl_Roles" EntitySet="Apl_Roles" />
+            <End Role="Apl_Rel_Usuarios_Roles" EntitySet="Apl_Rel_Usuarios_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tags__UsuarioId__7E02B4CC" Association="ERP_EJE_CENTRALModel.FK__Tags__UsuarioId__7E02B4CC">
+            <End Role="Apl_Usuarios_Movil" EntitySet="Apl_Usuarios_Movil" />
+            <End Role="Tag" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Medicos_Cat_Especialidades" Association="ERP_EJE_CENTRALModel.FK_Cat_Medicos_Cat_Especialidades">
+            <End Role="Cat_Especialidades" EntitySet="Cat_Especialidades" />
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Horarios_Registro_Civil_Cat_Registro_Civil" Association="ERP_EJE_CENTRALModel.FK_Cat_Horarios_Registro_Civil_Cat_Registro_Civil">
+            <End Role="Cat_Registro_Civil" EntitySet="Cat_Registro_Civil" />
+            <End Role="Cat_Horarios_Registro_Civil" EntitySet="Cat_Horarios_Registro_Civil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Horarios_Ubicaciones_Cat_Ubicaciones" Association="ERP_EJE_CENTRALModel.FK_Cat_Horarios_Ubicaciones_Cat_Ubicaciones">
+            <End Role="Cat_Ubicaciones" EntitySet="Cat_Ubicaciones" />
+            <End Role="Cat_Horarios_Ubicaciones" EntitySet="Cat_Horarios_Ubicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cat_Medic__Hospi__22401542" Association="ERP_EJE_CENTRALModel.FK__Cat_Medic__Hospi__22401542">
+            <End Role="Cat_Ubicaciones" EntitySet="Cat_Ubicaciones" />
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ope_Recor__Medic__6CD828CA" Association="ERP_EJE_CENTRALModel.FK__Ope_Recor__Medic__6CD828CA">
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+            <End Role="Ope_Recordatorios" EntitySet="Ope_Recordatorios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Relacion_Medico_Hospital_Cat_Medicos" Association="ERP_EJE_CENTRALModel.FK_Cat_Relacion_Medico_Hospital_Cat_Medicos">
+            <End Role="Cat_Medicos" EntitySet="Cat_Medicos" />
+            <End Role="Cat_Relacion_Medico_Hospital" EntitySet="Cat_Relacion_Medico_Hospital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Relacion_Medico_Hospital_Cat_Ubicaciones" Association="ERP_EJE_CENTRALModel.FK_Cat_Relacion_Medico_Hospital_Cat_Ubicaciones">
+            <End Role="Cat_Ubicaciones" EntitySet="Cat_Ubicaciones" />
+            <End Role="Cat_Relacion_Medico_Hospital" EntitySet="Cat_Relacion_Medico_Hospital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Ubicaciones_Cat_Tipo_Instalacion" Association="ERP_EJE_CENTRALModel.FK_Cat_Ubicaciones_Cat_Tipo_Instalacion">
+            <End Role="Cat_Tipo_Instalacion" EntitySet="Cat_Tipo_Instalacion" />
+            <End Role="Cat_Ubicaciones" EntitySet="Cat_Ubicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="fk_cartilla_aplicacion_vacuna" Association="ERP_EJE_CENTRALModel.fk_cartilla_aplicacion_vacuna">
+            <End Role="Ope_Cartilla_Vacunacion" EntitySet="Ope_Cartilla_Vacunacion" />
+            <End Role="Ope_Aplicacion_Vacunas" EntitySet="Ope_Aplicacion_Vacunas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ope_Recor__Recor__6AEFE058" Association="ERP_EJE_CENTRALModel.FK__Ope_Recor__Recor__6AEFE058">
+            <End Role="Ope_Recordatorios" EntitySet="Ope_Recordatorios" />
+            <End Role="Ope_Recordatorios_Detalles" EntitySet="Ope_Recordatorios_Detalles" />
+          </AssociationSet>
+          <EntitySet Name="Apl_Usuarios" EntityType="ERP_EJE_CENTRALModel.Apl_Usuarios" />
+          <EntitySet Name="Cat_Tramites" EntityType="ERP_EJE_CENTRALModel.Cat_Tramites" />
+          <AssociationSet Name="Tramites_Estatus" Association="ERP_EJE_CENTRALModel.Tramites_Estatus">
+            <End Role="Apl_Estatus" EntitySet="Apl_Estatus" />
+            <End Role="Cat_Tramites" EntitySet="Cat_Tramites" />
+          </AssociationSet>
+          <AssociationSet Name="fkUsuarioRoleConfig" Association="ERP_EJE_CENTRALModel.fkUsuarioRoleConfig">
+            <End Role="Apl_Usuarios" EntitySet="Apl_Usuarios" />
+            <End Role="Apl_Rel_Usuarios_Roles" EntitySet="Apl_Rel_Usuarios_Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Apl_Usuarios_Apl_Tipo_Usuarios" Association="ERP_EJE_CENTRALModel.FK_Apl_Usuarios_Apl_Tipo_Usuarios">
+            <End Role="Apl_Tipos_Usuarios" EntitySet="Apl_Tipos_Usuarios" />
+            <End Role="Apl_Usuarios" EntitySet="Apl_Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat_Tramites_Pasos_Cat_Tramites" Association="ERP_EJE_CENTRALModel.FK_Cat_Tramites_Pasos_Cat_Tramites">
+            <End Role="Cat_Tramites" EntitySet="Cat_Tramites" />
+            <End Role="Cat_Tramites_Pasos" EntitySet="Cat_Tramites_Pasos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Apl_Accesos">
+          <Key>
+            <PropertyRef Name="Rol_ID" />
+            <PropertyRef Name="Menu_ID" />
+          </Key>
+          <Property Name="Rol_ID" Type="Int32" Nullable="false" />
+          <Property Name="Menu_ID" Type="Int32" Nullable="false" />
+          <Property Name="Estatus_ID" Type="Int32" Nullable="false" />
+          <Property Name="Habilitado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Alta" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Cambio" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Eliminar" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Consultar" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Ip_Creo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Equipo_Creo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Apl_Menus" Relationship="ERP_EJE_CENTRALModel.FK_APL_ACCESO_CAT_MENUS1" FromRole="Apl_Accesos" ToRole="Apl_Menus" />
+        </EntityType>
+        <EntityType Name="Apl_Bebes">
+          <Key>
+            <PropertyRef Name="BebeId" />
+          </Key>
+          <Property Name="BebeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="Sexo" Type="Boolean" />
+          <Property Name="Padecimientos" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioId" Type="Int32" />
+          <Property Name="RutaImagen" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Apl_Usuarios_Movil" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Bebes__Usuar__4D5F7D71" FromRole="Apl_Bebes" ToRole="Apl_Usuarios_Movil" />
+          <NavigationProperty Name="Apl_Historial_Bebes" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Histo__BebeI__0B5CAFEA" FromRole="Apl_Bebes" ToRole="Apl_Historial_Bebes" />
+          <NavigationProperty Name="Ope_Recordatorios" Relationship="ERP_EJE_CENTRALModel.FK__Ope_Recor__BebeI__662B2B3B" FromRole="Apl_Bebes" ToRole="Ope_Recordatorios" />
+          <NavigationProperty Name="Ope_Aplicacion_Vacunas" Relationship="ERP_EJE_CENTRALModel.fk_bebe_aplicacion_vacuna" FromRole="Apl_Bebes" ToRole="Ope_Aplicacion_Vacunas" />
+        </EntityType>
+        <EntityType Name="Apl_Estatus">
+          <Key>
+            <PropertyRef Name="Estatus_ID" />
+          </Key>
+          <Property Name="Estatus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cat_Consejos_Medicos" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Consejos_Medicos_Apl_Estatus" FromRole="Apl_Estatus" ToRole="Cat_Consejos_Medicos" />
+          <NavigationProperty Name="Cat_Especialidades" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Especialidades_Apl_Estatus" FromRole="Apl_Estatus" ToRole="Cat_Especialidades" />
+          <NavigationProperty Name="Cat_Medicos" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Medicos_Apl_Estatus" FromRole="Apl_Estatus" ToRole="Cat_Medicos" />
+          <NavigationProperty Name="Cat_Mes_Aplicacion_Vacuna" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Mes_Aplicacion_Vacuna_Apl_Estatus" FromRole="Apl_Estatus" ToRole="Cat_Mes_Aplicacion_Vacuna" />
+          <NavigationProperty Name="Cat_Registro_Civil" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Registro_Civil_Apl_Estatus" FromRole="Apl_Estatus" ToRole="Cat_Registro_Civil" />
+          <NavigationProperty Name="Cat_Tipo_Instalacion" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Tipo_Instalacion_Apl_Estatus" FromRole="Apl_Estatus" ToRole="Cat_Tipo_Instalacion" />
+          <NavigationProperty Name="Cat_Ubicaciones" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Ubicaciones_Apl_Estatus" FromRole="Apl_Estatus" ToRole="Cat_Ubicaciones" />
+          <NavigationProperty Name="Cat_Vacunas" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Vacunas_Apl_Estatus" FromRole="Apl_Estatus" ToRole="Cat_Vacunas" />
+          <NavigationProperty Name="Cat_Tramites" Relationship="ERP_EJE_CENTRALModel.Tramites_Estatus" FromRole="Apl_Estatus" ToRole="Cat_Tramites" />
+        </EntityType>
+        <EntityType Name="Apl_Historial_Bebes">
+          <Key>
+            <PropertyRef Name="HistorialId" />
+          </Key>
+          <Property Name="HistorialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BebeId" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MesesVacuna" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreo" Type="DateTime" Precision="0" />
+          <Property Name="Peso" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Estatura" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="RecordatorioDetalleId" Type="Int32" />
+          <Property Name="RecordatorioId" Type="Int32" />
+          <NavigationProperty Name="Apl_Bebes" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Histo__BebeI__0B5CAFEA" FromRole="Apl_Historial_Bebes" ToRole="Apl_Bebes" />
+          <NavigationProperty Name="Ope_Recordatorios_Detalles" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Histo__Recor__0C50D423" FromRole="Apl_Historial_Bebes" ToRole="Ope_Recordatorios_Detalles" />
+          <NavigationProperty Name="Ope_Recordatorios" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Histo__Recor__0D44F85C" FromRole="Apl_Historial_Bebes" ToRole="Ope_Recordatorios" />
+        </EntityType>
+        <EntityType Name="Apl_Menus">
+          <Key>
+            <PropertyRef Name="Menu_ID" />
+          </Key>
+          <Property Name="Menu_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus_ID" Type="Int32" Nullable="false" />
+          <Property Name="Modulo_ID" Type="Int32" />
+          <Property Name="Parent_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Menu_Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="URL_LINK" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_Mostrar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Orden" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="Icono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Visible" Type="Boolean" />
+          <NavigationProperty Name="Apl_Accesos" Relationship="ERP_EJE_CENTRALModel.FK_APL_ACCESO_CAT_MENUS1" FromRole="Apl_Menus" ToRole="Apl_Accesos" />
+          <NavigationProperty Name="Apl_Modulos" Relationship="ERP_EJE_CENTRALModel.FK_CAT_MENUS_APL_CAT_MODULOS" FromRole="Apl_Menus" ToRole="Apl_Modulos" />
+        </EntityType>
+        <EntityType Name="Apl_Modulos">
+          <Key>
+            <PropertyRef Name="Modulo_ID" />
+          </Key>
+          <Property Name="Modulo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="Icono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Orden" Type="Int32" />
+          <NavigationProperty Name="Apl_Menus" Relationship="ERP_EJE_CENTRALModel.FK_CAT_MENUS_APL_CAT_MODULOS" FromRole="Apl_Modulos" ToRole="Apl_Menus" />
+        </EntityType>
+        <EntityType Name="Apl_Opiniones">
+          <Key>
+            <PropertyRef Name="Opinion_Id" />
+          </Key>
+          <Property Name="Opinion_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calificacion" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Comentarios" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="UsuarioMoviId" Type="Int32" />
+          <Property Name="Medico_Id" Type="Int32" />
+          <NavigationProperty Name="Cat_Medicos" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Opini__Medic__214BF109" FromRole="Apl_Opiniones" ToRole="Cat_Medicos" />
+          <NavigationProperty Name="Apl_Usuarios_Movil" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Opini__Usuar__2057CCD0" FromRole="Apl_Opiniones" ToRole="Apl_Usuarios_Movil" />
+        </EntityType>
+        <EntityType Name="Apl_Parametros_Correo">
+          <Key>
+            <PropertyRef Name="Parametro_ID" />
+          </Key>
+          <Property Name="Parametro_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Puerto" Type="Int32" />
+          <Property Name="Host" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Apl_Registro_Accesos">
+          <Key>
+            <PropertyRef Name="Empresa_ID" />
+            <PropertyRef Name="Registro_ID" />
+          </Key>
+          <Property Name="Empresa_ID" Type="Int32" Nullable="false" />
+          <Property Name="Registro_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario_ID" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Apl_Rel_Usuarios_Roles">
+          <Key>
+            <PropertyRef Name="Rel_Usuario_Rol_ID" />
+          </Key>
+          <Property Name="Rel_Usuario_Rol_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario_ID" Type="Int32" Nullable="false" />
+          <Property Name="Rol_ID" Type="Int32" Nullable="false" />
+          <Property Name="Empresa_ID" Type="Int32" Nullable="false" />
+          <Property Name="Sucursal_ID" Type="Int32" />
+          <NavigationProperty Name="Apl_Roles" Relationship="ERP_EJE_CENTRALModel.FK_Apl_Rel_Usuarios_Roles_Apl_Roles" FromRole="Apl_Rel_Usuarios_Roles" ToRole="Apl_Roles" />
+          <NavigationProperty Name="Apl_Usuarios" Relationship="ERP_EJE_CENTRALModel.fkUsuarioRoleConfig" FromRole="Apl_Rel_Usuarios_Roles" ToRole="Apl_Usuarios" />
+        </EntityType>
+        <EntityType Name="Apl_Roles">
+          <Key>
+            <PropertyRef Name="Rol_ID" />
+            <PropertyRef Name="Empresa_ID" />
+          </Key>
+          <Property Name="Rol_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empresa_ID" Type="Int32" Nullable="false" />
+          <Property Name="Nivel_ID" Type="Int32" />
+          <Property Name="Estatus_ID" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="Tipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Apl_Rel_Usuarios_Roles" Relationship="ERP_EJE_CENTRALModel.FK_Apl_Rel_Usuarios_Roles_Apl_Roles" FromRole="Apl_Roles" ToRole="Apl_Rel_Usuarios_Roles" />
+        </EntityType>
+        <EntityType Name="Apl_Roles_Sucursales">
+          <Key>
+            <PropertyRef Name="Empresa_ID" />
+            <PropertyRef Name="Sucursal_ID" />
+            <PropertyRef Name="Rol_ID" />
+          </Key>
+          <Property Name="Empresa_ID" Type="Int32" Nullable="false" />
+          <Property Name="Sucursal_ID" Type="Int32" Nullable="false" />
+          <Property Name="Rol_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apl_Tipos_Usuarios">
+          <Key>
+            <PropertyRef Name="Tipo_Usuario_ID" />
+          </Key>
+          <Property Name="Tipo_Usuario_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Apl_Usuarios" Relationship="ERP_EJE_CENTRALModel.FK_Apl_Usuarios_Apl_Tipo_Usuarios" FromRole="Apl_Tipos_Usuarios" ToRole="Apl_Usuarios" />
+        </EntityType>
+        <EntityType Name="Apl_Usuarios_Movil">
+          <Key>
+            <PropertyRef Name="UsuarioMovilId" />
+          </Key>
+          <Property Name="UsuarioMovilId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Token" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="FacebookI_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apple_Id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LoginExterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Apl_Bebes" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Bebes__Usuar__4D5F7D71" FromRole="Apl_Usuarios_Movil" ToRole="Apl_Bebes" />
+          <NavigationProperty Name="Apl_Opiniones" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Opini__Usuar__2057CCD0" FromRole="Apl_Usuarios_Movil" ToRole="Apl_Opiniones" />
+          <NavigationProperty Name="Tags" Relationship="ERP_EJE_CENTRALModel.FK__Tags__UsuarioId__7E02B4CC" FromRole="Apl_Usuarios_Movil" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Apl_Usuarios_Password">
+          <Key>
+            <PropertyRef Name="No_Registro" />
+            <PropertyRef Name="Empresa_ID" />
+            <PropertyRef Name="Usuario_ID" />
+          </Key>
+          <Property Name="No_Registro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empresa_ID" Type="Int32" Nullable="false" />
+          <Property Name="Usuario_ID" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Password" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Cat_Consejos_Medicos">
+          <Key>
+            <PropertyRef Name="Consejo_Id" />
+          </Key>
+          <Property Name="Consejo_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="Consejo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tags" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Apl_Estatus" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Consejos_Medicos_Apl_Estatus" FromRole="Cat_Consejos_Medicos" ToRole="Apl_Estatus" />
+        </EntityType>
+        <EntityType Name="Cat_Empleados">
+          <Key>
+            <PropertyRef Name="Empleado_ID" />
+          </Key>
+          <Property Name="Empleado_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Empresa_ID" Type="Int32" Nullable="false" />
+          <Property Name="No_Empleado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Nivel" Type="Int32" Nullable="false" />
+          <Property Name="Planta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="Estatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cat_Especialidades">
+          <Key>
+            <PropertyRef Name="Especialidad_Id" />
+          </Key>
+          <Property Name="Especialidad_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="Especialidad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Apl_Estatus" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Especialidades_Apl_Estatus" FromRole="Cat_Especialidades" ToRole="Apl_Estatus" />
+          <NavigationProperty Name="Cat_Medicos" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Medicos_Cat_Especialidades" FromRole="Cat_Especialidades" ToRole="Cat_Medicos" />
+        </EntityType>
+        <EntityType Name="Cat_Horarios_Registro_Civil">
+          <Key>
+            <PropertyRef Name="Horario_Registro_Civil_Id" />
+          </Key>
+          <Property Name="Horario_Registro_Civil_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Registro_Civil_Id" Type="Int32" />
+          <Property Name="Dia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Horario_Inicio" Type="Time" Precision="7" />
+          <Property Name="Horario_Termino" Type="Time" Precision="7" />
+          <NavigationProperty Name="Cat_Registro_Civil" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Horarios_Registro_Civil_Cat_Registro_Civil" FromRole="Cat_Horarios_Registro_Civil" ToRole="Cat_Registro_Civil" />
+        </EntityType>
+        <EntityType Name="Cat_Horarios_Ubicaciones">
+          <Key>
+            <PropertyRef Name="Horario_Ubicacion_ID" />
+          </Key>
+          <Property Name="Horario_Ubicacion_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ubicacion_Id" Type="Int32" />
+          <Property Name="Dia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Horario_Inicio" Type="Time" Precision="7" />
+          <Property Name="Horario_Termino" Type="Time" Precision="7" />
+          <NavigationProperty Name="Cat_Ubicaciones" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Horarios_Ubicaciones_Cat_Ubicaciones" FromRole="Cat_Horarios_Ubicaciones" ToRole="Cat_Ubicaciones" />
+        </EntityType>
+        <EntityType Name="Cat_Medicos">
+          <Key>
+            <PropertyRef Name="Medico_Id" />
+          </Key>
+          <Property Name="Medico_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Especialidad_Id" Type="Int32" Nullable="false" />
+          <Property Name="Estatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido_Paterno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido_Materno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="No_Cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="Imagen" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+          <Property Name="Hospital_Id" Type="Int32" />
+          <Property Name="Emergencias" Type="Boolean" />
+          <NavigationProperty Name="Apl_Estatus" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Medicos_Apl_Estatus" FromRole="Cat_Medicos" ToRole="Apl_Estatus" />
+          <NavigationProperty Name="Apl_Opiniones" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Opini__Medic__214BF109" FromRole="Cat_Medicos" ToRole="Apl_Opiniones" />
+          <NavigationProperty Name="Cat_Especialidades" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Medicos_Cat_Especialidades" FromRole="Cat_Medicos" ToRole="Cat_Especialidades" />
+          <NavigationProperty Name="Cat_Ubicaciones" Relationship="ERP_EJE_CENTRALModel.FK__Cat_Medic__Hospi__22401542" FromRole="Cat_Medicos" ToRole="Cat_Ubicaciones" />
+          <NavigationProperty Name="Ope_Recordatorios" Relationship="ERP_EJE_CENTRALModel.FK__Ope_Recor__Medic__6CD828CA" FromRole="Cat_Medicos" ToRole="Ope_Recordatorios" />
+          <NavigationProperty Name="Cat_Relacion_Medico_Hospital" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Relacion_Medico_Hospital_Cat_Medicos" FromRole="Cat_Medicos" ToRole="Cat_Relacion_Medico_Hospital" />
+        </EntityType>
+        <EntityType Name="Cat_Mes_Aplicacion_Vacuna">
+          <Key>
+            <PropertyRef Name="Mes_Id" />
+          </Key>
+          <Property Name="Mes_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="No_Mes" Type="Int32" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Apl_Estatus" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Mes_Aplicacion_Vacuna_Apl_Estatus" FromRole="Cat_Mes_Aplicacion_Vacuna" ToRole="Apl_Estatus" />
+        </EntityType>
+        <EntityType Name="Cat_Registro_Civil">
+          <Key>
+            <PropertyRef Name="Registro_Civil_Id" />
+          </Key>
+          <Property Name="Registro_Civil_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="Decimal" Precision="18" Scale="15" />
+          <Property Name="Latitud" Type="Decimal" Precision="18" Scale="15" />
+          <Property Name="Horario_Inicio" Type="Time" Precision="7" />
+          <Property Name="Horario_Termino" Type="Time" Precision="7" />
+          <Property Name="Lunes" Type="Boolean" />
+          <Property Name="Martes" Type="Boolean" />
+          <Property Name="Miercoles" Type="Boolean" />
+          <Property Name="Jueves" Type="Boolean" />
+          <Property Name="Viernes" Type="Boolean" />
+          <Property Name="Sabado" Type="Boolean" />
+          <Property Name="Domingo" Type="Boolean" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sitio_Web_URL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Tramite" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Apl_Estatus" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Registro_Civil_Apl_Estatus" FromRole="Cat_Registro_Civil" ToRole="Apl_Estatus" />
+          <NavigationProperty Name="Cat_Horarios_Registro_Civil" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Horarios_Registro_Civil_Cat_Registro_Civil" FromRole="Cat_Registro_Civil" ToRole="Cat_Horarios_Registro_Civil" />
+        </EntityType>
+        <EntityType Name="Cat_Relacion_Medico_Hospital">
+          <Key>
+            <PropertyRef Name="Relacion_Id" />
+          </Key>
+          <Property Name="Relacion_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Medico_Id" Type="Int32" Nullable="false" />
+          <Property Name="Hospital_Id" Type="Int32" Nullable="false" />
+          <Property Name="Costo_Consulta" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Cat_Medicos" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Relacion_Medico_Hospital_Cat_Medicos" FromRole="Cat_Relacion_Medico_Hospital" ToRole="Cat_Medicos" />
+          <NavigationProperty Name="Cat_Ubicaciones" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Relacion_Medico_Hospital_Cat_Ubicaciones" FromRole="Cat_Relacion_Medico_Hospital" ToRole="Cat_Ubicaciones" />
+        </EntityType>
+        <EntityType Name="Cat_Tipo_Instalacion">
+          <Key>
+            <PropertyRef Name="Tipo_Instalacion_Id" />
+          </Key>
+          <Property Name="Tipo_Instalacion_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Apl_Estatus" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Tipo_Instalacion_Apl_Estatus" FromRole="Cat_Tipo_Instalacion" ToRole="Apl_Estatus" />
+          <NavigationProperty Name="Cat_Ubicaciones" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Ubicaciones_Cat_Tipo_Instalacion" FromRole="Cat_Tipo_Instalacion" ToRole="Cat_Ubicaciones" />
+        </EntityType>
+        <EntityType Name="Cat_Tramites_Pasos">
+          <Key>
+            <PropertyRef Name="Paso_Id" />
+          </Key>
+          <Property Name="Paso_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tramite_Id" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Orden" Type="Int32" />
+          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Url_Imagen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Cat_Tramites" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Tramites_Pasos_Cat_Tramites" FromRole="Cat_Tramites_Pasos" ToRole="Cat_Tramites" />
+        </EntityType>
+        <EntityType Name="Cat_Ubicaciones">
+          <Key>
+            <PropertyRef Name="Ubicacion_Id" />
+          </Key>
+          <Property Name="Ubicacion_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo_Instalacion_Id" Type="Int32" Nullable="false" />
+          <Property Name="Estatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Longitud" Type="Decimal" Precision="18" Scale="15" />
+          <Property Name="Latitud" Type="Decimal" Precision="18" Scale="15" />
+          <Property Name="Horario_Inicio" Type="Time" Precision="7" />
+          <Property Name="Horario_Termino" Type="Time" Precision="7" />
+          <Property Name="Lunes" Type="Boolean" />
+          <Property Name="Martes" Type="Boolean" />
+          <Property Name="Miercoles" Type="Boolean" />
+          <Property Name="Jueves" Type="Boolean" />
+          <Property Name="Viernes" Type="Boolean" />
+          <Property Name="Sabado" Type="Boolean" />
+          <Property Name="Domingo" Type="Boolean" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="Emergencias" Type="Boolean" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono_Urgencias" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sitio_Web_URL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Apl_Estatus" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Ubicaciones_Apl_Estatus" FromRole="Cat_Ubicaciones" ToRole="Apl_Estatus" />
+          <NavigationProperty Name="Cat_Horarios_Ubicaciones" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Horarios_Ubicaciones_Cat_Ubicaciones" FromRole="Cat_Ubicaciones" ToRole="Cat_Horarios_Ubicaciones" />
+          <NavigationProperty Name="Cat_Medicos" Relationship="ERP_EJE_CENTRALModel.FK__Cat_Medic__Hospi__22401542" FromRole="Cat_Ubicaciones" ToRole="Cat_Medicos" />
+          <NavigationProperty Name="Cat_Relacion_Medico_Hospital" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Relacion_Medico_Hospital_Cat_Ubicaciones" FromRole="Cat_Ubicaciones" ToRole="Cat_Relacion_Medico_Hospital" />
+          <NavigationProperty Name="Cat_Tipo_Instalacion" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Ubicaciones_Cat_Tipo_Instalacion" FromRole="Cat_Ubicaciones" ToRole="Cat_Tipo_Instalacion" />
+        </EntityType>
+        <EntityType Name="Cat_Vacunas">
+          <Key>
+            <PropertyRef Name="Vacuna_Id" />
+          </Key>
+          <Property Name="Vacuna_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus_Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Apl_Estatus" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Vacunas_Apl_Estatus" FromRole="Cat_Vacunas" ToRole="Apl_Estatus" />
+        </EntityType>
+        <EntityType Name="Ope_Aplicacion_Vacunas">
+          <Key>
+            <PropertyRef Name="Aplicacion_Vacuna_ID" />
+          </Key>
+          <Property Name="Aplicacion_Vacuna_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Relacion_Id" Type="Int32" />
+          <Property Name="BebeId" Type="Int32" />
+          <Property Name="Fecha_Agenda_Vacuna" Type="DateTime" Precision="0" />
+          <Property Name="Fecha_Aplica_Vacuna" Type="DateTime" Precision="0" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="0" />
+          <Property Name="Fecha_Modifica" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Apl_Bebes" Relationship="ERP_EJE_CENTRALModel.fk_bebe_aplicacion_vacuna" FromRole="Ope_Aplicacion_Vacunas" ToRole="Apl_Bebes" />
+          <NavigationProperty Name="Ope_Cartilla_Vacunacion" Relationship="ERP_EJE_CENTRALModel.fk_cartilla_aplicacion_vacuna" FromRole="Ope_Aplicacion_Vacunas" ToRole="Ope_Cartilla_Vacunacion" />
+        </EntityType>
+        <EntityType Name="Ope_Cartilla_Vacunacion">
+          <Key>
+            <PropertyRef Name="Relacion_Id" />
+          </Key>
+          <Property Name="Relacion_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mes_Id" Type="Int32" Nullable="false" />
+          <Property Name="Vacuna_Id" Type="Int32" Nullable="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="Dosis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Enfermedad" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ope_Aplicacion_Vacunas" Relationship="ERP_EJE_CENTRALModel.fk_cartilla_aplicacion_vacuna" FromRole="Ope_Cartilla_Vacunacion" ToRole="Ope_Aplicacion_Vacunas" />
+        </EntityType>
+        <EntityType Name="Ope_Recordatorios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Intervalo" Type="Time" Precision="7" />
+          <Property Name="Dias" Type="Int32" />
+          <Property Name="Inicio" Type="DateTime" Precision="0" />
+          <Property Name="BebeId" Type="Int32" />
+          <Property Name="Tipo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="MedicoId" Type="Int32" />
+          <Property Name="Informacion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ImagenUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DoctorNoRegistrado" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Apl_Bebes" Relationship="ERP_EJE_CENTRALModel.FK__Ope_Recor__BebeI__662B2B3B" FromRole="Ope_Recordatorios" ToRole="Apl_Bebes" />
+          <NavigationProperty Name="Apl_Historial_Bebes" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Histo__Recor__0D44F85C" FromRole="Ope_Recordatorios" ToRole="Apl_Historial_Bebes" />
+          <NavigationProperty Name="Cat_Medicos" Relationship="ERP_EJE_CENTRALModel.FK__Ope_Recor__Medic__6CD828CA" FromRole="Ope_Recordatorios" ToRole="Cat_Medicos" />
+          <NavigationProperty Name="Ope_Recordatorios_Detalles" Relationship="ERP_EJE_CENTRALModel.FK__Ope_Recor__Recor__6AEFE058" FromRole="Ope_Recordatorios" ToRole="Ope_Recordatorios_Detalles" />
+        </EntityType>
+        <EntityType Name="Ope_Recordatorios_Detalles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="RecordatorioId" Type="Int32" />
+          <NavigationProperty Name="Apl_Historial_Bebes" Relationship="ERP_EJE_CENTRALModel.FK__Apl_Histo__Recor__0C50D423" FromRole="Ope_Recordatorios_Detalles" ToRole="Apl_Historial_Bebes" />
+          <NavigationProperty Name="Ope_Recordatorios" Relationship="ERP_EJE_CENTRALModel.FK__Ope_Recor__Recor__6AEFE058" FromRole="Ope_Recordatorios_Detalles" ToRole="Ope_Recordatorios" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioId" Type="Int32" />
+          <Property Name="Palabra" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreo" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Apl_Usuarios_Movil" Relationship="ERP_EJE_CENTRALModel.FK__Tags__UsuarioId__7E02B4CC" FromRole="Tag" ToRole="Apl_Usuarios_Movil" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK_APL_ACCESO_CAT_MENUS1">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Menus" Role="Apl_Menus" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Accesos" Role="Apl_Accesos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Menus">
+              <PropertyRef Name="Menu_ID" />
+            </Principal>
+            <Dependent Role="Apl_Accesos">
+              <PropertyRef Name="Menu_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Bebes__Usuar__4D5F7D71">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Usuarios_Movil" Role="Apl_Usuarios_Movil" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Bebes" Role="Apl_Bebes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Usuarios_Movil">
+              <PropertyRef Name="UsuarioMovilId" />
+            </Principal>
+            <Dependent Role="Apl_Bebes">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Histo__BebeI__0B5CAFEA">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Bebes" Role="Apl_Bebes" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Historial_Bebes" Role="Apl_Historial_Bebes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Bebes">
+              <PropertyRef Name="BebeId" />
+            </Principal>
+            <Dependent Role="Apl_Historial_Bebes">
+              <PropertyRef Name="BebeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ope_Recor__BebeI__662B2B3B">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Bebes" Role="Apl_Bebes" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Ope_Recordatorios" Role="Ope_Recordatorios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Bebes">
+              <PropertyRef Name="BebeId" />
+            </Principal>
+            <Dependent Role="Ope_Recordatorios">
+              <PropertyRef Name="BebeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bebe_aplicacion_vacuna">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Bebes" Role="Apl_Bebes" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Ope_Aplicacion_Vacunas" Role="Ope_Aplicacion_Vacunas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Bebes">
+              <PropertyRef Name="BebeId" />
+            </Principal>
+            <Dependent Role="Ope_Aplicacion_Vacunas">
+              <PropertyRef Name="BebeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Consejos_Medicos_Apl_Estatus">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Estatus" Role="Apl_Estatus" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Consejos_Medicos" Role="Cat_Consejos_Medicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Consejos_Medicos">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Especialidades_Apl_Estatus">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Estatus" Role="Apl_Estatus" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Especialidades" Role="Cat_Especialidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Especialidades">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Medicos_Apl_Estatus">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Estatus" Role="Apl_Estatus" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Medicos" Role="Cat_Medicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Medicos">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Mes_Aplicacion_Vacuna_Apl_Estatus">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Estatus" Role="Apl_Estatus" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Mes_Aplicacion_Vacuna" Role="Cat_Mes_Aplicacion_Vacuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Mes_Aplicacion_Vacuna">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Registro_Civil_Apl_Estatus">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Estatus" Role="Apl_Estatus" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Registro_Civil" Role="Cat_Registro_Civil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Registro_Civil">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Tipo_Instalacion_Apl_Estatus">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Estatus" Role="Apl_Estatus" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Tipo_Instalacion" Role="Cat_Tipo_Instalacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Tipo_Instalacion">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Ubicaciones_Apl_Estatus">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Estatus" Role="Apl_Estatus" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Ubicaciones" Role="Cat_Ubicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Ubicaciones">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Vacunas_Apl_Estatus">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Estatus" Role="Apl_Estatus" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Vacunas" Role="Cat_Vacunas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Vacunas">
+              <PropertyRef Name="Estatus_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Histo__Recor__0C50D423">
+          <End Type="ERP_EJE_CENTRALModel.Ope_Recordatorios_Detalles" Role="Ope_Recordatorios_Detalles" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Historial_Bebes" Role="Apl_Historial_Bebes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ope_Recordatorios_Detalles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apl_Historial_Bebes">
+              <PropertyRef Name="RecordatorioDetalleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Histo__Recor__0D44F85C">
+          <End Type="ERP_EJE_CENTRALModel.Ope_Recordatorios" Role="Ope_Recordatorios" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Historial_Bebes" Role="Apl_Historial_Bebes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ope_Recordatorios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Apl_Historial_Bebes">
+              <PropertyRef Name="RecordatorioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CAT_MENUS_APL_CAT_MODULOS">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Modulos" Role="Apl_Modulos" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Menus" Role="Apl_Menus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Modulos">
+              <PropertyRef Name="Modulo_ID" />
+            </Principal>
+            <Dependent Role="Apl_Menus">
+              <PropertyRef Name="Modulo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Opini__Medic__214BF109">
+          <End Type="ERP_EJE_CENTRALModel.Cat_Medicos" Role="Cat_Medicos" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Opiniones" Role="Apl_Opiniones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Medicos">
+              <PropertyRef Name="Medico_Id" />
+            </Principal>
+            <Dependent Role="Apl_Opiniones">
+              <PropertyRef Name="Medico_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Apl_Opini__Usuar__2057CCD0">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Usuarios_Movil" Role="Apl_Usuarios_Movil" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Opiniones" Role="Apl_Opiniones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Usuarios_Movil">
+              <PropertyRef Name="UsuarioMovilId" />
+            </Principal>
+            <Dependent Role="Apl_Opiniones">
+              <PropertyRef Name="UsuarioMoviId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Apl_Rel_Usuarios_Roles_Apl_Roles">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Roles" Role="Apl_Roles" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Rel_Usuarios_Roles" Role="Apl_Rel_Usuarios_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Roles">
+              <PropertyRef Name="Rol_ID" />
+              <PropertyRef Name="Empresa_ID" />
+            </Principal>
+            <Dependent Role="Apl_Rel_Usuarios_Roles">
+              <PropertyRef Name="Rol_ID" />
+              <PropertyRef Name="Empresa_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tags__UsuarioId__7E02B4CC">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Usuarios_Movil" Role="Apl_Usuarios_Movil" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Tag" Role="Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Usuarios_Movil">
+              <PropertyRef Name="UsuarioMovilId" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Medicos_Cat_Especialidades">
+          <End Type="ERP_EJE_CENTRALModel.Cat_Especialidades" Role="Cat_Especialidades" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Medicos" Role="Cat_Medicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Especialidades">
+              <PropertyRef Name="Especialidad_Id" />
+            </Principal>
+            <Dependent Role="Cat_Medicos">
+              <PropertyRef Name="Especialidad_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Horarios_Registro_Civil_Cat_Registro_Civil">
+          <End Type="ERP_EJE_CENTRALModel.Cat_Registro_Civil" Role="Cat_Registro_Civil" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Horarios_Registro_Civil" Role="Cat_Horarios_Registro_Civil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Registro_Civil">
+              <PropertyRef Name="Registro_Civil_Id" />
+            </Principal>
+            <Dependent Role="Cat_Horarios_Registro_Civil">
+              <PropertyRef Name="Registro_Civil_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Horarios_Ubicaciones_Cat_Ubicaciones">
+          <End Type="ERP_EJE_CENTRALModel.Cat_Ubicaciones" Role="Cat_Ubicaciones" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Horarios_Ubicaciones" Role="Cat_Horarios_Ubicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Ubicaciones">
+              <PropertyRef Name="Ubicacion_Id" />
+            </Principal>
+            <Dependent Role="Cat_Horarios_Ubicaciones">
+              <PropertyRef Name="Ubicacion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cat_Medic__Hospi__22401542">
+          <End Type="ERP_EJE_CENTRALModel.Cat_Ubicaciones" Role="Cat_Ubicaciones" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Medicos" Role="Cat_Medicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Ubicaciones">
+              <PropertyRef Name="Ubicacion_Id" />
+            </Principal>
+            <Dependent Role="Cat_Medicos">
+              <PropertyRef Name="Hospital_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ope_Recor__Medic__6CD828CA">
+          <End Type="ERP_EJE_CENTRALModel.Cat_Medicos" Role="Cat_Medicos" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Ope_Recordatorios" Role="Ope_Recordatorios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Medicos">
+              <PropertyRef Name="Medico_Id" />
+            </Principal>
+            <Dependent Role="Ope_Recordatorios">
+              <PropertyRef Name="MedicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Relacion_Medico_Hospital_Cat_Medicos">
+          <End Type="ERP_EJE_CENTRALModel.Cat_Medicos" Role="Cat_Medicos" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Relacion_Medico_Hospital" Role="Cat_Relacion_Medico_Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Medicos">
+              <PropertyRef Name="Medico_Id" />
+            </Principal>
+            <Dependent Role="Cat_Relacion_Medico_Hospital">
+              <PropertyRef Name="Medico_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Relacion_Medico_Hospital_Cat_Ubicaciones">
+          <End Type="ERP_EJE_CENTRALModel.Cat_Ubicaciones" Role="Cat_Ubicaciones" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Relacion_Medico_Hospital" Role="Cat_Relacion_Medico_Hospital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Ubicaciones">
+              <PropertyRef Name="Ubicacion_Id" />
+            </Principal>
+            <Dependent Role="Cat_Relacion_Medico_Hospital">
+              <PropertyRef Name="Hospital_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Ubicaciones_Cat_Tipo_Instalacion">
+          <End Type="ERP_EJE_CENTRALModel.Cat_Tipo_Instalacion" Role="Cat_Tipo_Instalacion" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Ubicaciones" Role="Cat_Ubicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Tipo_Instalacion">
+              <PropertyRef Name="Tipo_Instalacion_Id" />
+            </Principal>
+            <Dependent Role="Cat_Ubicaciones">
+              <PropertyRef Name="Tipo_Instalacion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_cartilla_aplicacion_vacuna">
+          <End Type="ERP_EJE_CENTRALModel.Ope_Cartilla_Vacunacion" Role="Ope_Cartilla_Vacunacion" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Ope_Aplicacion_Vacunas" Role="Ope_Aplicacion_Vacunas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ope_Cartilla_Vacunacion">
+              <PropertyRef Name="Relacion_Id" />
+            </Principal>
+            <Dependent Role="Ope_Aplicacion_Vacunas">
+              <PropertyRef Name="Relacion_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ope_Recor__Recor__6AEFE058">
+          <End Type="ERP_EJE_CENTRALModel.Ope_Recordatorios" Role="Ope_Recordatorios" Multiplicity="0..1" />
+          <End Type="ERP_EJE_CENTRALModel.Ope_Recordatorios_Detalles" Role="Ope_Recordatorios_Detalles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ope_Recordatorios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ope_Recordatorios_Detalles">
+              <PropertyRef Name="RecordatorioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Apl_Usuarios">
+          <Key>
+            <PropertyRef Name="Usuario_ID" />
+          </Key>
+          <Property Name="Empresa_ID" Type="Int32" Nullable="false" />
+          <Property Name="Usuario_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estatus_ID" Type="Int32" Nullable="false" />
+          <Property Name="Tipo_Usuario_ID" Type="Int32" Nullable="false" />
+          <Property Name="Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Expira_Contrasenia" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="No_Intentos_Recuperar" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Token_Confirmacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Token" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Respuesta_Secreta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Ultimo_Acceso" Type="DateTime" Precision="3" />
+          <Property Name="Fecha_Intento_Acceso" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_login" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Apl_Rel_Usuarios_Roles" Relationship="ERP_EJE_CENTRALModel.fkUsuarioRoleConfig" FromRole="Apl_Usuarios" ToRole="Apl_Rel_Usuarios_Roles" />
+          <NavigationProperty Name="Apl_Tipos_Usuarios" Relationship="ERP_EJE_CENTRALModel.FK_Apl_Usuarios_Apl_Tipo_Usuarios" FromRole="Apl_Usuarios" ToRole="Apl_Tipos_Usuarios" />
+        </EntityType>
+        <EntityType Name="Cat_Tramites">
+          <Key>
+            <PropertyRef Name="Tramite_Id" />
+          </Key>
+          <Property Name="Tramite_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario_Creo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creo" Type="DateTime" Precision="3" />
+          <Property Name="Usuario_Modifico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Modifico" Type="DateTime" Precision="3" />
+          <Property Name="Estatus_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Apl_Estatus" Relationship="ERP_EJE_CENTRALModel.Tramites_Estatus" FromRole="Cat_Tramites" ToRole="Apl_Estatus" />
+          <NavigationProperty Name="Cat_Tramites_Pasos" Relationship="ERP_EJE_CENTRALModel.FK_Cat_Tramites_Pasos_Cat_Tramites" FromRole="Cat_Tramites" ToRole="Cat_Tramites_Pasos" />
+        </EntityType>
+        <Association Name="Tramites_Estatus">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Estatus" Role="Apl_Estatus" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Tramites" Role="Cat_Tramites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Estatus">
+              <PropertyRef Name="Estatus_ID" />
+            </Principal>
+            <Dependent Role="Cat_Tramites">
+              <PropertyRef Name="Estatus_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkUsuarioRoleConfig">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Usuarios" Role="Apl_Usuarios" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Rel_Usuarios_Roles" Role="Apl_Rel_Usuarios_Roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Usuarios">
+              <PropertyRef Name="Usuario_ID" />
+            </Principal>
+            <Dependent Role="Apl_Rel_Usuarios_Roles">
+              <PropertyRef Name="Usuario_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Apl_Usuarios_Apl_Tipo_Usuarios">
+          <End Type="ERP_EJE_CENTRALModel.Apl_Tipos_Usuarios" Role="Apl_Tipos_Usuarios" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Apl_Usuarios" Role="Apl_Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apl_Tipos_Usuarios">
+              <PropertyRef Name="Tipo_Usuario_ID" />
+            </Principal>
+            <Dependent Role="Apl_Usuarios">
+              <PropertyRef Name="Tipo_Usuario_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat_Tramites_Pasos_Cat_Tramites">
+          <End Type="ERP_EJE_CENTRALModel.Cat_Tramites" Role="Cat_Tramites" Multiplicity="1" />
+          <End Type="ERP_EJE_CENTRALModel.Cat_Tramites_Pasos" Role="Cat_Tramites_Pasos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cat_Tramites">
+              <PropertyRef Name="Tramite_Id" />
+            </Principal>
+            <Dependent Role="Cat_Tramites_Pasos">
+              <PropertyRef Name="Tramite_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ERP_EJE_CENTRALModelStoreContainer" CdmEntityContainer="ERP_EJE_CENTRALEntities">
+          <EntitySetMapping Name="Apl_Accesos">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Accesos">
+              <MappingFragment StoreEntitySet="Apl_Accesos">
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Equipo_Creo" ColumnName="Equipo_Creo" />
+                <ScalarProperty Name="Ip_Creo" ColumnName="Ip_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Consultar" ColumnName="Consultar" />
+                <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
+                <ScalarProperty Name="Cambio" ColumnName="Cambio" />
+                <ScalarProperty Name="Alta" ColumnName="Alta" />
+                <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
+                <ScalarProperty Name="Estatus_ID" ColumnName="Estatus_ID" />
+                <ScalarProperty Name="Menu_ID" ColumnName="Menu_ID" />
+                <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Bebes">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Bebes">
+              <MappingFragment StoreEntitySet="Apl_Bebes">
+                <ScalarProperty Name="RutaImagen" ColumnName="RutaImagen" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Padecimientos" ColumnName="Padecimientos" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="BebeId" ColumnName="BebeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Estatus">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Estatus">
+              <MappingFragment StoreEntitySet="Apl_Estatus">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Estatus_ID" ColumnName="Estatus_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Historial_Bebes">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Historial_Bebes">
+              <MappingFragment StoreEntitySet="Apl_Historial_Bebes">
+                <ScalarProperty Name="RecordatorioId" ColumnName="RecordatorioId" />
+                <ScalarProperty Name="RecordatorioDetalleId" ColumnName="RecordatorioDetalleId" />
+                <ScalarProperty Name="Estatura" ColumnName="Estatura" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="MesesVacuna" ColumnName="MesesVacuna" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="BebeId" ColumnName="BebeId" />
+                <ScalarProperty Name="HistorialId" ColumnName="HistorialId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Menus">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Menus">
+              <MappingFragment StoreEntitySet="Apl_Menus">
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="Icono" ColumnName="Icono" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Nombre_Mostrar" ColumnName="Nombre_Mostrar" />
+                <ScalarProperty Name="URL_LINK" ColumnName="URL_LINK" />
+                <ScalarProperty Name="Menu_Descripcion" ColumnName="Menu_Descripcion" />
+                <ScalarProperty Name="Parent_ID" ColumnName="Parent_ID" />
+                <ScalarProperty Name="Modulo_ID" ColumnName="Modulo_ID" />
+                <ScalarProperty Name="Estatus_ID" ColumnName="Estatus_ID" />
+                <ScalarProperty Name="Menu_ID" ColumnName="Menu_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Modulos">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Modulos">
+              <MappingFragment StoreEntitySet="Apl_Modulos">
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Icono" ColumnName="Icono" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Modulo_ID" ColumnName="Modulo_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Opiniones">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Opiniones">
+              <MappingFragment StoreEntitySet="Apl_Opiniones">
+                <ScalarProperty Name="Medico_Id" ColumnName="Medico_Id" />
+                <ScalarProperty Name="UsuarioMoviId" ColumnName="UsuarioMoviId" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+                <ScalarProperty Name="Opinion_Id" ColumnName="Opinion_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Parametros_Correo">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Parametros_Correo">
+              <MappingFragment StoreEntitySet="Apl_Parametros_Correo">
+                <ScalarProperty Name="Host" ColumnName="Host" />
+                <ScalarProperty Name="Puerto" ColumnName="Puerto" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Parametro_ID" ColumnName="Parametro_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Registro_Accesos">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Registro_Accesos">
+              <MappingFragment StoreEntitySet="Apl_Registro_Accesos">
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Usuario_ID" ColumnName="Usuario_ID" />
+                <ScalarProperty Name="Registro_ID" ColumnName="Registro_ID" />
+                <ScalarProperty Name="Empresa_ID" ColumnName="Empresa_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Rel_Usuarios_Roles">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Rel_Usuarios_Roles">
+              <MappingFragment StoreEntitySet="Apl_Rel_Usuarios_Roles">
+                <ScalarProperty Name="Sucursal_ID" ColumnName="Sucursal_ID" />
+                <ScalarProperty Name="Empresa_ID" ColumnName="Empresa_ID" />
+                <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+                <ScalarProperty Name="Usuario_ID" ColumnName="Usuario_ID" />
+                <ScalarProperty Name="Rel_Usuario_Rol_ID" ColumnName="Rel_Usuario_Rol_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Roles">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Roles">
+              <MappingFragment StoreEntitySet="Apl_Roles">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estatus_ID" ColumnName="Estatus_ID" />
+                <ScalarProperty Name="Nivel_ID" ColumnName="Nivel_ID" />
+                <ScalarProperty Name="Empresa_ID" ColumnName="Empresa_ID" />
+                <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Roles_Sucursales">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Roles_Sucursales">
+              <MappingFragment StoreEntitySet="Apl_Roles_Sucursales">
+                <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+                <ScalarProperty Name="Sucursal_ID" ColumnName="Sucursal_ID" />
+                <ScalarProperty Name="Empresa_ID" ColumnName="Empresa_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Tipos_Usuarios">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Tipos_Usuarios">
+              <MappingFragment StoreEntitySet="Apl_Tipos_Usuarios">
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tipo_Usuario_ID" ColumnName="Tipo_Usuario_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Usuarios_Movil">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Usuarios_Movil">
+              <MappingFragment StoreEntitySet="Apl_Usuarios_Movil">
+                <ScalarProperty Name="LoginExterno" ColumnName="LoginExterno" />
+                <ScalarProperty Name="Apple_Id" ColumnName="Apple_Id" />
+                <ScalarProperty Name="FacebookI_Id" ColumnName="FacebookI_Id" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UsuarioMovilId" ColumnName="UsuarioMovilId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Usuarios_Password">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Usuarios_Password">
+              <MappingFragment StoreEntitySet="Apl_Usuarios_Password">
+                <ScalarProperty Name="Fecha_Password" ColumnName="Fecha_Password" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Usuario_ID" ColumnName="Usuario_ID" />
+                <ScalarProperty Name="Empresa_ID" ColumnName="Empresa_ID" />
+                <ScalarProperty Name="No_Registro" ColumnName="No_Registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Consejos_Medicos">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Consejos_Medicos">
+              <MappingFragment StoreEntitySet="Cat_Consejos_Medicos">
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Consejo" ColumnName="Consejo" />
+                <ScalarProperty Name="Estatus_Id" ColumnName="Estatus_Id" />
+                <ScalarProperty Name="Consejo_Id" ColumnName="Consejo_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Empleados">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Empleados">
+              <MappingFragment StoreEntitySet="Cat_Empleados">
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Planta" ColumnName="Planta" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="No_Empleado" ColumnName="No_Empleado" />
+                <ScalarProperty Name="Empresa_ID" ColumnName="Empresa_ID" />
+                <ScalarProperty Name="Empleado_ID" ColumnName="Empleado_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Especialidades">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Especialidades">
+              <MappingFragment StoreEntitySet="Cat_Especialidades">
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Especialidad" ColumnName="Especialidad" />
+                <ScalarProperty Name="Estatus_Id" ColumnName="Estatus_Id" />
+                <ScalarProperty Name="Especialidad_Id" ColumnName="Especialidad_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Horarios_Registro_Civil">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Horarios_Registro_Civil">
+              <MappingFragment StoreEntitySet="Cat_Horarios_Registro_Civil">
+                <ScalarProperty Name="Horario_Termino" ColumnName="Horario_Termino" />
+                <ScalarProperty Name="Horario_Inicio" ColumnName="Horario_Inicio" />
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+                <ScalarProperty Name="Registro_Civil_Id" ColumnName="Registro_Civil_Id" />
+                <ScalarProperty Name="Horario_Registro_Civil_Id" ColumnName="Horario_Registro_Civil_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Horarios_Ubicaciones">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Horarios_Ubicaciones">
+              <MappingFragment StoreEntitySet="Cat_Horarios_Ubicaciones">
+                <ScalarProperty Name="Horario_Termino" ColumnName="Horario_Termino" />
+                <ScalarProperty Name="Horario_Inicio" ColumnName="Horario_Inicio" />
+                <ScalarProperty Name="Dia" ColumnName="Dia" />
+                <ScalarProperty Name="Ubicacion_Id" ColumnName="Ubicacion_Id" />
+                <ScalarProperty Name="Horario_Ubicacion_ID" ColumnName="Horario_Ubicacion_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Medicos">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Medicos">
+              <MappingFragment StoreEntitySet="Cat_Medicos">
+                <ScalarProperty Name="Emergencias" ColumnName="Emergencias" />
+                <ScalarProperty Name="Hospital_Id" ColumnName="Hospital_Id" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="No_Cedula" ColumnName="No_Cedula" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Apellido_Materno" ColumnName="Apellido_Materno" />
+                <ScalarProperty Name="Apellido_Paterno" ColumnName="Apellido_Paterno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estatus_Id" ColumnName="Estatus_Id" />
+                <ScalarProperty Name="Especialidad_Id" ColumnName="Especialidad_Id" />
+                <ScalarProperty Name="Medico_Id" ColumnName="Medico_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Mes_Aplicacion_Vacuna">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Mes_Aplicacion_Vacuna">
+              <MappingFragment StoreEntitySet="Cat_Mes_Aplicacion_Vacuna">
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="No_Mes" ColumnName="No_Mes" />
+                <ScalarProperty Name="Estatus_Id" ColumnName="Estatus_Id" />
+                <ScalarProperty Name="Mes_Id" ColumnName="Mes_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Registro_Civil">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Registro_Civil">
+              <MappingFragment StoreEntitySet="Cat_Registro_Civil">
+                <ScalarProperty Name="Tramite" ColumnName="Tramite" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Sitio_Web_URL" ColumnName="Sitio_Web_URL" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Domingo" ColumnName="Domingo" />
+                <ScalarProperty Name="Sabado" ColumnName="Sabado" />
+                <ScalarProperty Name="Viernes" ColumnName="Viernes" />
+                <ScalarProperty Name="Jueves" ColumnName="Jueves" />
+                <ScalarProperty Name="Miercoles" ColumnName="Miercoles" />
+                <ScalarProperty Name="Martes" ColumnName="Martes" />
+                <ScalarProperty Name="Lunes" ColumnName="Lunes" />
+                <ScalarProperty Name="Horario_Termino" ColumnName="Horario_Termino" />
+                <ScalarProperty Name="Horario_Inicio" ColumnName="Horario_Inicio" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estatus_Id" ColumnName="Estatus_Id" />
+                <ScalarProperty Name="Registro_Civil_Id" ColumnName="Registro_Civil_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Relacion_Medico_Hospital">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Relacion_Medico_Hospital">
+              <MappingFragment StoreEntitySet="Cat_Relacion_Medico_Hospital">
+                <ScalarProperty Name="Costo_Consulta" ColumnName="Costo_Consulta" />
+                <ScalarProperty Name="Hospital_Id" ColumnName="Hospital_Id" />
+                <ScalarProperty Name="Medico_Id" ColumnName="Medico_Id" />
+                <ScalarProperty Name="Relacion_Id" ColumnName="Relacion_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Tipo_Instalacion">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Tipo_Instalacion">
+              <MappingFragment StoreEntitySet="Cat_Tipo_Instalacion">
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estatus_Id" ColumnName="Estatus_Id" />
+                <ScalarProperty Name="Tipo_Instalacion_Id" ColumnName="Tipo_Instalacion_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Tramites_Pasos">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Tramites_Pasos">
+              <MappingFragment StoreEntitySet="Cat_Tramites_Pasos">
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Url_Imagen" ColumnName="Url_Imagen" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Tramite_Id" ColumnName="Tramite_Id" />
+                <ScalarProperty Name="Paso_Id" ColumnName="Paso_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Ubicaciones">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Ubicaciones">
+              <MappingFragment StoreEntitySet="Cat_Ubicaciones">
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Sitio_Web_URL" ColumnName="Sitio_Web_URL" />
+                <ScalarProperty Name="Telefono_Urgencias" ColumnName="Telefono_Urgencias" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Emergencias" ColumnName="Emergencias" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Domingo" ColumnName="Domingo" />
+                <ScalarProperty Name="Sabado" ColumnName="Sabado" />
+                <ScalarProperty Name="Viernes" ColumnName="Viernes" />
+                <ScalarProperty Name="Jueves" ColumnName="Jueves" />
+                <ScalarProperty Name="Miercoles" ColumnName="Miercoles" />
+                <ScalarProperty Name="Martes" ColumnName="Martes" />
+                <ScalarProperty Name="Lunes" ColumnName="Lunes" />
+                <ScalarProperty Name="Horario_Termino" ColumnName="Horario_Termino" />
+                <ScalarProperty Name="Horario_Inicio" ColumnName="Horario_Inicio" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estatus_Id" ColumnName="Estatus_Id" />
+                <ScalarProperty Name="Tipo_Instalacion_Id" ColumnName="Tipo_Instalacion_Id" />
+                <ScalarProperty Name="Ubicacion_Id" ColumnName="Ubicacion_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Vacunas">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Vacunas">
+              <MappingFragment StoreEntitySet="Cat_Vacunas">
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Estatus_Id" ColumnName="Estatus_Id" />
+                <ScalarProperty Name="Vacuna_Id" ColumnName="Vacuna_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ope_Aplicacion_Vacunas">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Ope_Aplicacion_Vacunas">
+              <MappingFragment StoreEntitySet="Ope_Aplicacion_Vacunas">
+                <ScalarProperty Name="Fecha_Modifica" ColumnName="Fecha_Modifica" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Fecha_Aplica_Vacuna" ColumnName="Fecha_Aplica_Vacuna" />
+                <ScalarProperty Name="Fecha_Agenda_Vacuna" ColumnName="Fecha_Agenda_Vacuna" />
+                <ScalarProperty Name="BebeId" ColumnName="BebeId" />
+                <ScalarProperty Name="Relacion_Id" ColumnName="Relacion_Id" />
+                <ScalarProperty Name="Aplicacion_Vacuna_ID" ColumnName="Aplicacion_Vacuna_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ope_Cartilla_Vacunacion">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Ope_Cartilla_Vacunacion">
+              <MappingFragment StoreEntitySet="Ope_Cartilla_Vacunacion">
+                <ScalarProperty Name="Enfermedad" ColumnName="Enfermedad" />
+                <ScalarProperty Name="Dosis" ColumnName="Dosis" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Vacuna_Id" ColumnName="Vacuna_Id" />
+                <ScalarProperty Name="Mes_Id" ColumnName="Mes_Id" />
+                <ScalarProperty Name="Relacion_Id" ColumnName="Relacion_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ope_Recordatorios">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Ope_Recordatorios">
+              <MappingFragment StoreEntitySet="Ope_Recordatorios">
+                <ScalarProperty Name="DoctorNoRegistrado" ColumnName="DoctorNoRegistrado" />
+                <ScalarProperty Name="ImagenUrl" ColumnName="ImagenUrl" />
+                <ScalarProperty Name="Informacion" ColumnName="Informacion" />
+                <ScalarProperty Name="MedicoId" ColumnName="MedicoId" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="BebeId" ColumnName="BebeId" />
+                <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+                <ScalarProperty Name="Dias" ColumnName="Dias" />
+                <ScalarProperty Name="Intervalo" ColumnName="Intervalo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ope_Recordatorios_Detalles">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Ope_Recordatorios_Detalles">
+              <MappingFragment StoreEntitySet="Ope_Recordatorios_Detalles">
+                <ScalarProperty Name="RecordatorioId" ColumnName="RecordatorioId" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Tag">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="FechaCreo" ColumnName="FechaCreo" />
+                <ScalarProperty Name="Palabra" ColumnName="Palabra" />
+                <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tests">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.test">
+              <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apl_Usuarios">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Apl_Usuarios">
+              <MappingFragment StoreEntitySet="Apl_Usuarios">
+                <ScalarProperty Name="Usuario_login" ColumnName="Usuario_login" />
+                <ScalarProperty Name="Fecha_Intento_Acceso" ColumnName="Fecha_Intento_Acceso" />
+                <ScalarProperty Name="Fecha_Ultimo_Acceso" ColumnName="Fecha_Ultimo_Acceso" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Respuesta_Secreta" ColumnName="Respuesta_Secreta" />
+                <ScalarProperty Name="Fecha_Token" ColumnName="Fecha_Token" />
+                <ScalarProperty Name="Token_Confirmacion" ColumnName="Token_Confirmacion" />
+                <ScalarProperty Name="No_Intentos_Recuperar" ColumnName="No_Intentos_Recuperar" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fecha_Expira_Contrasenia" ColumnName="Fecha_Expira_Contrasenia" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Tipo_Usuario_ID" ColumnName="Tipo_Usuario_ID" />
+                <ScalarProperty Name="Estatus_ID" ColumnName="Estatus_ID" />
+                <ScalarProperty Name="Usuario_ID" ColumnName="Usuario_ID" />
+                <ScalarProperty Name="Empresa_ID" ColumnName="Empresa_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cat_Tramites">
+            <EntityTypeMapping TypeName="ERP_EJE_CENTRALModel.Cat_Tramites">
+              <MappingFragment StoreEntitySet="Cat_Tramites">
+                <ScalarProperty Name="Estatus_ID" ColumnName="Estatus_ID" />
+                <ScalarProperty Name="Fecha_Modifico" ColumnName="Fecha_Modifico" />
+                <ScalarProperty Name="Usuario_Modifico" ColumnName="Usuario_Modifico" />
+                <ScalarProperty Name="Fecha_Creo" ColumnName="Fecha_Creo" />
+                <ScalarProperty Name="Usuario_Creo" ColumnName="Usuario_Creo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Tramite_Id" ColumnName="Tramite_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

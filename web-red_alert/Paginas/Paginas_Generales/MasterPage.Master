@@ -1,0 +1,218 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="web_red_alert.Paginas.Paginas_Generales.MasterPage" %>
+<%@ Import Namespace="web_red_alert.Models.Ayudante" %>
+<%@ Register Src="~/Paginas/Paginas_Generales/Menu_Principal.ascx" TagPrefix="uc1" TagName="Menu_Principal" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="shortcut icon" href="../../Recursos/img/favicon.ico"/>
+    <meta http-equiv="Content-Language" content="es" />
+
+    <link href="../../Recursos/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Recursos/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../../Recursos/bootstrap/css/bootstrap-custom.css" rel="stylesheet" />
+    <link href="../../Recursos/bootstrap-date/datepicker.css" rel="stylesheet" />
+    <link href="../../Recursos/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../Recursos/font-indie/css/indie.css" rel="stylesheet" />
+    <link href="../../Recursos/font-roboto/css/roboto.css" rel="stylesheet" />
+    <link href="../../Recursos/lightbox/ekko-lightbox.min.css" rel="stylesheet" />
+    <link href="../../Recursos/xenon/css/xenon-core.css" rel="stylesheet" />
+    <link href="../../Recursos/xenon/css/xenon-forms.css" rel="stylesheet" />
+    <link href="../../Recursos/xenon/css/xenon-components.css" rel="stylesheet" />
+    <link href="../../Recursos/xenon/css/xenon-skins.css" rel="stylesheet" />
+    <link href="../../Recursos/xenon/css/custom.css" rel="stylesheet" />
+
+    <script src="../../Recursos/jquery/jquery-1.12.3.min.js"></script>
+    <script src="../../Recursos/jquery/jquery-migrate-1.2.1.min.js"></script>
+
+
+    <script src="../../Recursos/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../Recursos/bootstrap-date/bootstrap-datepicker.js"></script>
+    <script src="../../Recursos/bootstrap-date/bootstrap-datepicker.es.js"></script>
+  <%--  <link href="../../Recursos/angular/angular-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="../../Recursos/angular/angular-bootstrap-datetimepicker/css/bootstrap-datetimepicker-standalone.css" rel="stylesheet" />
+    <script src="../../Recursos/angular/angular-bootstrap-datetimepicker/js/moment.min.js"></script>
+    <script src="../../Recursos/angular/angular-bootstrap-datetimepicker/js/moment-with-locales.min.js"></script>
+    <script src="../../Recursos/angular/angular-bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../Recursos/angular/angular-bootstrap-datetimepicker/js/angular-bootstrap-datetimepicker-directive.min.js"></script>--%>
+
+    <script src="../../Recursos/respond.js"></script>
+    <script src="../../Recursos/TweenMax.min.js"></script>
+    <script src="../../Recursos/resizeable.js"></script>
+    <script src="../../Recursos/joinable.js"></script>
+    <script src="../../Recursos/xenon/js/xenon-api.js"></script>
+    <script src="../../Recursos/xenon/js/xenon-toggles.js"></script>
+    <script src="../../Recursos/lightbox/ekko-lightbox.min.js"></script>
+    <script src="../../Recursos/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../Recursos/xenon/js/xenon-widgets.js"></script>
+    <script src="../../Recursos/xenon/js/xenon-custom.js"></script>
+    <script src="../../Recursos/toastr/toastr.min.js"></script>
+    <script src="../../Recursos/bootstrap-box/dialogs.js"></script>
+    <script src="../../Recursos/bootstrap-box/bootbox.js"></script>
+    <script src="../../Recursos/plugins/jquery.qtip-1.0.0-rc3.min.js"></script>
+    <script src="../../Recursos/plugins/jquery_jclock.js"></script>
+    <script src="../../Recursos/plugins/date.js"></script>
+    <script src="../../Recursos/plugins/es-MX.js"></script>
+    <script src="../../Recursos/javascript/seguridad/Js_Master_Page.js"></script>
+    <script src="../../Recursos/plugins/bootstrap-session-timeout.min.js"></script>
+    <script src="../../Recursos/plugins/jquery.inputmask.bundle.js"></script>
+
+
+
+     <!-- ANGULAR JS -->
+    <script src="../../Recursos/angular/angular.min.js"></script>
+    <script src="../../Recursos/angular/angular-animate.min.js"></script>
+    <script src="../../Recursos/angular/angular-sanitize.min.js"></script>
+    <script src="../../Recursos/angular/angular-messages.min.js"></script>
+    <link href="../../Recursos/angular/growl/angular-growl.min.css" rel="stylesheet" />
+    <script src="../../Recursos/angular/growl/angular-growl.min.js"></script>
+    <script src="../../Recursos/angular/file-upload/ng-file-upload-shim.min.js"></script>
+    <script src="../../Recursos/angular/file-upload/ng-file-upload.min.js"></script>
+    <script src="../../Recursos/angular/isotope/jquery.isotope.min.js"></script>
+    <script src="../../Recursos/angular/isotope/angular-isotope.min.js"></script>
+    <link href="../../Recursos/angular/isotope/isotope.css" rel="stylesheet" />
+    <link href="../../Recursos/angular/ui-select/select.min.css" rel="stylesheet" />
+    <script src="../../Recursos/angular/ui-select/select.min.js"></script>
+    <link href="../../Recursos/angular/tree/angular-ui-tree.css" rel="stylesheet" />
+    <script src="../../Recursos/angular/tree/angular-ui-tree.js"></script>
+    <script src="../../Recursos/angular/ui-bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <link href="../../Recursos/angular/angular-bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="../../Recursos/angular/angular-bootstrap-datetimepicker/css/bootstrap-datetimepicker-standalone.css" rel="stylesheet" />
+    <script src="../../Recursos/angular/angular-bootstrap-datetimepicker/js/moment.min.js"></script>
+    <script src="../../Recursos/angular/angular-bootstrap-datetimepicker/js/moment-with-locales.min.js"></script>
+    <script src="../../Recursos/angular/angular-bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../Recursos/angular/angular-bootstrap-datetimepicker/js/angular-bootstrap-datetimepicker-directive.min.js"></script>
+    <script src="../../Recursos/angular/select2/select.js"></script>
+    <link href="../../Recursos/angular/select2/select.css" rel="stylesheet" />
+    <script src="../../Recursos/angular/adapt-strap/adapt-strap-custom.js"></script>
+    <script src="../../Recursos/angular/adapt-strap/adapt-strap-custom.tpl.js"></script>
+    <link href="../../Recursos/angular/adapt-strap/adapt-strap.min.css" rel="stylesheet" />
+
+    <title>Sistema Cuidado de los bebes</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../../Recursos/estilos/css_master.css" rel="stylesheet" />
+</head>
+<body style="padding-right: 0px !important;">
+    <form id="form1" runat="server">
+    <div>
+       
+        <div class="page-container">
+
+            <div class="sidebar-menu toggle-others collapsed fixed">
+
+                <div class="sidebar-menu-inner ps-container">
+
+                    <header class="logo-env">
+                        <!-- logo -->
+                        <div class="logo">
+                            <a href="../Paginas_Generales/Frm_Apl_Principal.aspx" class="logo-expanded">
+                                <table>
+                                    <tr>
+                                        <td style="padding-right:20px;"><img src="../../Recursos/img/DR_35x35.png" width="80" height="80"/></td>
+                                        <td><span class="text-white text-bold" style="font-size: x-large; word-spacing:1px;">Sistema Cuidado de Bebes</span></td>
+                                    </tr>
+                                </table>
+                                
+                            </a>
+                            <a href="../Paginas_Generales/Frm_Apl_Principal.aspx" class="logo-collapsed" data-toggle="settings-pane" data-animate="true">
+                                <img src="../../Recursos/img/DR_35x35.png" width="50" height="50"/>
+                            </a>
+                        </div>
+                        <!-- This will toggle the mobile menu and will be visible only on mobile devices -->
+                        <div class="mobile-menu-toggle visible-xs">
+                            <a href="#" data-toggle="user-info-menu">
+                                <i class="fa fa-bell-o"></i> <span class="badge badge-success"></span>
+                            </a>
+                            <a href="#" data-toggle="mobile-menu">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                    </header>
+
+                    <uc1:Menu_Principal runat="server" id="Menu_Principal" />
+                    <!--fin menu-->
+                </div>
+            </div>
+
+            <div class="main-content">
+                <!-- User Info, Notifications and Menu Bar -->
+                <nav class="navbar user-info-navbar" role="navigation">
+                    <!-- Right links for user info navbar -->
+                    <ul class="user-info-menu right-links list-inline list-unstyled">
+
+                        <li class="dropdown user-profile">
+                            <a href="#" data-toggle="dropdown">
+                                <img id="img_perfil_master" src="../../Recursos/img/avatar-f.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+                                <span id="lbl_nombre_usuario"><%=Cls_Sesiones.Usuario %><%=Cls_Sesiones.Empleado%></span>
+                                <i class="fa-angle-down"></i>
+                            </a>
+
+                            <ul class="dropdown-menu user-profile-menu list-unstyled">                              
+                                <li class="last">
+                                    <a href="#" id="btn_salir_sistema">
+                                        <i class="fa fa-sign-out"></i>
+                                        Salir
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </nav>
+
+                <div id="Contenido_Pagina">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- Main Footer -->
+                <!-- Choose between footer styles: "footer-type-1" or "footer-type-2" -->
+                <!-- Add class "sticky" to  always stick the footer to the end of page (if page contents is small) -->
+                <!-- Or class "fixed" to  always fix the footer to the end of page -->
+                <footer class="main-footer fixed footer-type-1">
+
+                    <div class="footer-inner">
+
+                        <!-- Add your copyright text here -->
+                        <div class="footer-text">
+                           &copy; <%=DateTime.Now.Year %>
+                            <strong>
+                                Conectividad y Telecomunicación SA de CV
+                                <a href="http://www.contel.com.mx" target="_blank">&nbsp;CONTEL</a>
+                            </strong>
+                        </div>
+
+                            <div id="div_master_mensaje_aviso" style="display: none" align="center" class="alert alert-success aviso">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                            </div>
+
+
+                        <!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
+                        <div class="go-up">
+                            <i class="fa fa-clock-o fa-2x" style="color: rgba(0, 80, 151, 1); font-size: 22px !important;"></i>&nbsp;
+                            <span class="jclock" style="background-color:transparent !important; color:#fff !important;"></span>
+                        </div>
+
+                    </div>
+
+                </footer>
+            </div>
+
+        </div>
+
+        <div class="page-loading-overlay">
+            <div class="loader-2"></div>
+        </div>
+
+    </div>
+    </form>
+</body>
+</html>

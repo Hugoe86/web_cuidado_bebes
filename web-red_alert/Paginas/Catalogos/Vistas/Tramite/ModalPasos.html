@@ -1,0 +1,77 @@
+﻿
+
+<div class="modal fade" id="modal_pasos" name="modal_pasos" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close cancelar" data-dismiss="modal" aria-label="Close" onclick="_cancelar_modal_click();">
+                    <i class="fa fa-times text-red"></i>
+                </button>
+                <h3 class="modal-title" id="myModalLabel">
+                    <label id="lbl_titulo_modal_pasos"></label>
+                </h3>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-color panel-default" id="pnl_datos_oc" style="margin-bottom:10px !important">
+                            <div class="panel-heading">
+                            </div>
+                            <div class="panel-body">
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div style="display: none;">
+                                            <input id="txt_pasos_id" type="hidden" class="form-control" />
+                                            <input id="txt_tramite_pasos_id" type="hidden" class="form-control" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <label class="fuente_lbl_controles">(*) Descripci&oacute;n</label>
+                                        <input id="txt_descripcion_paso" type="text" class="form-control" placeholder="Descripción" style="margin-top:0px" />
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="fuente_lbl_controles">(*) Orden</label>
+                                        <input id="txt_orden_paso" type="text" class="form-control" placeholder="Orden" style="margin-top:0px" maxlength="2" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button id="btn_agregar" class="btn btn-blue btn-block" title="Agregar" style="margin-top:19px;"><i class="fa fa-check"></i><span id="spn_agregar">&nbsp;Guardar</span></button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button id="btn_cancelar_actualizacion_pasos" class="btn btn-danger btn-block" title="Cancelar" style="margin-top:19px;"><i class="fa fa-remove"></i>&nbsp;Cancelar</button>
+                                    </div>
+                                </div>
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table id="tbl_pasos" class="table table-responsive"></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

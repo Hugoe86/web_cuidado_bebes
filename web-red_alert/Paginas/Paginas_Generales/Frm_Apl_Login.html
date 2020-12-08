@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Sistema de Ciudados bebes" />
+    <meta name="author" content="Contel" />
+    <!--<link rel="shortcut icon" href="../../Recursos/img/favicon.ico"/>-->
+    <meta http-equiv="Content-Language" content="es"/>
+
+    <title>Login Sistema Cuidados de bebes</title>
+    <meta charset="utf-8"/>
+
+    <link href="../../Recursos/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Recursos/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="../../Recursos/bootstrap/css/bootstrap-custom.css" rel="stylesheet" />
+    <link href="../../Recursos/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../Recursos/font-indie/css/indie.css" rel="stylesheet" />
+    <link href="../../Recursos/font-roboto/css/roboto.css" rel="stylesheet" />
+    <link href="../../Recursos/lightbox/ekko-lightbox.min.css" rel="stylesheet" />
+    <link href="../../Recursos/xenon/css/xenon-core.css" rel="stylesheet" />
+    <link href="../../Recursos/xenon/css/xenon-forms.css" rel="stylesheet" />
+    <link href="../../Recursos/xenon/css/xenon-components.css" rel="stylesheet" />
+    <link href="../../Recursos/xenon/css/xenon-skins.css" rel="stylesheet" />
+    <link href="../../Recursos/xenon/css/custom.css" rel="stylesheet" />
+    <link href="../../Recursos/estilos/css_login.css" rel="stylesheet" />
+    <link href="../../Recursos/bootstrap-combo/select2.css" rel="stylesheet" />
+
+    <script src="../../Recursos/jquery/jquery-1.12.3.min.js"></script>
+    <script src="../../Recursos/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../../Recursos/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../Recursos/respond.js"></script>
+    <script src="../../Recursos/TweenMax.min.js"></script>
+    <script src="../../Recursos/resizeable.js"></script>
+    <script src="../../Recursos/joinable.js"></script>
+    <script src="../../Recursos/xenon/js/xenon-api.js"></script>
+    <script src="../../Recursos/xenon/js/xenon-toggles.js"></script>
+    <script src="../../Recursos/lightbox/ekko-lightbox.min.js"></script>
+    <script src="../../Recursos/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../../Recursos/xenon/js/xenon-widgets.js"></script>
+    <script src="../../Recursos/xenon/js/xenon-custom.js"></script>
+    <script src="../../Recursos/toastr/toastr.min.js"></script>
+    <script src="../../Recursos/bootstrap-box/dialogs.js"></script>
+    <script src="../../Recursos/bootstrap-box/bootbox.js"></script>
+    <script src="../../Recursos/plugins/jquery.qtip-1.0.0-rc3.min.js"></script>
+    <script src="../../Recursos/javascript/seguridad/Js_Apl_Login.js"></script>
+    <script src="../../Recursos/plugins/jquery.cookie.js"></script>
+    <script src="../../Recursos/bootstrap-combo/select2.js"></script>
+    <script src="../../Recursos/bootstrap-combo/es.js"></script>
+    <script src="../../Recursos/plugins/parsley.js"></script>
+    <style>
+        .select2-container--classic .select2-search--dropdown .select2-search__field {
+            border: 1px solid #cfc7c7;
+            outline: 0;
+            background-color: #FFF;
+            color: #000;
+        }
+
+        .select2-container--classic .select2-dropdown {
+            background-color: #FFF;
+            border: 1px solid transparent;
+            color: #000;
+        }
+
+        .select2-container--classic .select2-results__option--highlighted[aria-selected] {
+            background-color: /*#68B828;*/   #FFF;
+            color: #FFF !important;
+            font-weight: bold;
+        }
+
+        .select2-container--classic.select2-container--open .select2-dropdown {
+            border-color: #267AC1;
+        }
+    </style>
+</head>
+<body class="page-body login-page">
+    <div id="login-container" class="login-container">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <!-- Errors container -->
+                <div class="errors-container"></div>
+
+                <!-- Add class "fade-in-effect" for login form effect -->
+                <form method="post" role="form" id="login" class="login-form fade-in-effect" novalidate="novalidate">
+
+                    <div class="login-header" style="margin-bottom:20px !important">
+                        <div class="row justify-content-center">
+                            <div class="col-4" style="text-align:center;">
+                                <img src="../../Recursos/img/DR_35x35.png" class="faa-spin animated-hover" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-4" style="padding-top: 7px; text-align:center;">
+                                <span class="h3">Sistema Cuidado de Bebes</span>
+                            </div>
+                        </div>
+
+                        <!--<i class="fa fa-connectdevelop
+    faa-float  animated" style="font-size: 72px;"></i>&nbsp;&nbsp;-->
+
+
+
+                        <p style="text-align:center;">Ingresa tus datos para accesar al sistema.</p>
+                    </div>
+                        <div class="row" style="align-content:center">
+                            
+                            <div class="form-group; col-md-12">
+                                    &nbsp;
+                            </div>
+                        </div>
+                    <h1></h1>                        
+                        <div id="login-usuario" class="row" style="display:block;">
+                            <div class="form-group"> 
+                                <input type="text" class="form-control input-dark" name="username" id="username" autocomplete="off" maxlength="100" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control input-dark" name="passwd" id="passwd" autocomplete="off" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-7 text-left">
+                                    &nbsp;&nbsp;<input type="checkbox" name="remember" id="remember" class="iswitch iswitch-gray" />
+                                    &nbsp;<span style="font-family: 'Roboto Regular'">Recu&eacute;rdame</span>
+                                    &nbsp;
+                                    <div class="parent" style="display: inline">
+                                        <a href="#" id="btn_popup" style="font-family: 'Century Gothic'; font-size: x-small; color: #7ac0ff;">
+                                            Detalles&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 text-right">
+                                    <button type="submit" class="btn btn-secondary btn-icon btn-icon-standalone btn-lg">
+                                        <i class="fa fa-key faa-burst animated-hover"></i>
+                                        <span>Entrar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>                        
+
+                        <div class="login-footer">
+                            <div class="text-center">
+                                <a href="#" onclick="$('#modal_recuperar_password').modal('show', { backdrop: 'static', keyboard: false });">&iquest;Olvidaste tu contrase&ntilde;a?</a>
+                            </div>
+                            <div class="info-links text-center">
+                                Derechos Reservados © <span id="anio"></span>&nbsp;<a href="http://www.contel.com.mx/" target="_blank">Conectividad y Telecomunicaci&oacute;n S.A. de C.V.</a>
+                            </div>
+                        </div>
+</form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal_recuperar_password" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Recuperar contraseña</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="text-center">
+                                <h3><i class="fa fa-lock fa-4x"></i></h3>
+                                <h2 class="text-center">Recuperar contraseña</h2>
+                                    <p>Le enviaremos su contraseña a la cuenta de correo electrónico que se configuró al registrarse.</p>
+                                    <div class="panel-body">
+
+                                    <form class="form">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <i class="glyphicon glyphicon-envelope color-blue"></i>
+                                                    </span>
+
+                                                    <input class="form-control fix-form-control" id="emailInput" required="" onchange="try{setCustomValidity('')}catch(e){}"
+                                                           oninvalid="setCustomValidity('Por favor, introduce una dirección de correo electrónico válida')" type="email" 
+                                                           placeholder="email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+ 
+                                                <button id="btn_enviar_email" class="btn btn-lg btn-primary  btn-block btn-icon btn-icon-standalone btn-icon-standalone-right" type="submit">
+                                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                                    <span>Enviar</span>
+                                                </button>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+﻿
+
+<div class="modal fade" id="modal_relacion" name="modal_vacunas" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close cancelar" data-dismiss="modal" aria-label="Close" onclick="_cancelar_modal_relacion_click();">
+                    <i class="fa fa-times text-red"></i>
+                </button>
+                <h3 class="modal-title" id="myModalLabel">
+                    <label id="lbl_titulo_modal_relacion"></label>
+                </h3>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-color panel-default" id="pnl_datos_oc" style="margin-bottom:10px !important">
+                            <div class="panel-heading">
+                            </div>
+                            <div class="panel-body">
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div style="display: none;">
+                                            <input id="txt_mes_relacion_id" type="hidden" class="form-control" />
+                                            <input id="txt_relacion_id" type="hidden" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <label class="fuente_lbl_controles">Vacuna</label>
+                                        <select id="cmb_vacuna" name="cmb_vacuna" class="form-control input-sm" style="border-radius:inherit"></select>
+                                    </div>
+                                </div>
+
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+                                <div class="row">
+
+                                    <div class="col-md-5">
+                                        <label class="fuente_lbl_controles">Dosis</label>
+                                        <input id="txt_dosis" type="text" class="form-control" placeholder="Dosis" style="margin-top:0px" maxlength="50"/>
+                                    </div>
+
+                                    <div class="col-md-5" style="text-align:right">
+                                        <label class="fuente_lbl_controles">Enfermedad que previene</label>
+                                        <input id="txt_enfermedad_cura" type="text" class="form-control" placeholder="Enfermedad" style="margin-top:0px" maxlength="300" />
+                                    </div>
+
+                                    <div class="col-md-2" style="text-align:right">
+                                        <button id="btn_agregar" class="btn btn-success" title="Agregar"><i class="fa fa-check"></i><span id="spn_agregar">&nbsp;Agregar</span></button>
+
+                                    </div>
+                                </div>
+
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+
+                                        <table id="tbl_relacion" class="table table-responsive"></table>
+                                    </div>
+                                </div>
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

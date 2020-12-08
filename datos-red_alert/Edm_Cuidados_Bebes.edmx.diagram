@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ae07cb7fef33417faa1d6c476d67d6bd" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Accesos" Width="1.5" PointX="10.25" PointY="6.375" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Bebes" Width="1.5" PointX="13.5" PointY="24.875" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Estatus" Width="1.5" PointX="0.75" PointY="19.375" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Historial_Bebes" Width="1.5" PointX="20.25" PointY="22.375" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Menus" Width="1.5" PointX="8" PointY="6" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Modulos" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Opiniones" Width="1.5" PointX="12.75" PointY="21.375" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Parametros_Correo" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Registro_Accesos" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Rel_Usuarios_Roles" Width="1.5" PointX="5.25" PointY="2.375" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Roles" Width="1.5" PointX="3" PointY="34" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Roles_Sucursales" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Tipos_Usuarios" Width="1.5" PointX="0.75" PointY="2.375" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Usuarios_Movil" Width="1.5" PointX="10.5" PointY="26.625" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Usuarios_Password" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Consejos_Medicos" Width="1.5" PointX="3" PointY="19.25" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Empleados" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Especialidades" Width="1.5" PointX="3" PointY="29.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Horarios_Registro_Civil" Width="1.5" PointX="5.25" PointY="14.625" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Horarios_Ubicaciones" Width="1.5" PointX="10.5" PointY="14.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Medicos" Width="1.5" PointX="10.5" PointY="19.875" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Mes_Aplicacion_Vacuna" Width="1.5" PointX="3" PointY="23.125" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Registro_Civil" Width="1.5" PointX="3" PointY="12.875" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Relacion_Medico_Hospital" Width="1.5" PointX="12.75" PointY="17.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Tipo_Instalacion" Width="1.5" PointX="3" PointY="9.375" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Tramites_Pasos" Width="1.5" PointX="10" PointY="1" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Ubicaciones" Width="1.5" PointX="8.25" PointY="12.625" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Vacunas" Width="1.5" PointX="3" PointY="26.375" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Ope_Aplicacion_Vacunas" Width="1.5" PointX="15.75" PointY="26.125" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Ope_Cartilla_Vacunacion" Width="1.5" PointX="13.5" PointY="33" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Ope_Recordatorios" Width="1.5" PointX="15.75" PointY="20.625" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Ope_Recordatorios_Detalles" Width="1.5" PointX="18" PointY="25.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Tag" Width="1.5" PointX="12.75" PointY="29.5" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.test" Width="1.5" PointX="14.75" PointY="3.75" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_APL_ACCESO_CAT_MENUS1" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Apl_Bebes__Usuar__4D5F7D71" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Apl_Histo__BebeI__0B5CAFEA" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Ope_Recor__BebeI__662B2B3B" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.fk_bebe_aplicacion_vacuna" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Consejos_Medicos_Apl_Estatus" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Especialidades_Apl_Estatus" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Medicos_Apl_Estatus" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Mes_Aplicacion_Vacuna_Apl_Estatus" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Registro_Civil_Apl_Estatus" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Tipo_Instalacion_Apl_Estatus" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Ubicaciones_Apl_Estatus" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Vacunas_Apl_Estatus" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Apl_Histo__Recor__0C50D423" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Apl_Histo__Recor__0D44F85C" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_CAT_MENUS_APL_CAT_MODULOS" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Apl_Opini__Medic__214BF109" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Apl_Opini__Usuar__2057CCD0" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Apl_Rel_Usuarios_Roles_Apl_Roles" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Tags__UsuarioId__7E02B4CC" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Medicos_Cat_Especialidades" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Horarios_Registro_Civil_Cat_Registro_Civil" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Horarios_Ubicaciones_Cat_Ubicaciones" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Cat_Medic__Hospi__22401542" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Ope_Recor__Medic__6CD828CA" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Relacion_Medico_Hospital_Cat_Medicos" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Relacion_Medico_Hospital_Cat_Ubicaciones" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Ubicaciones_Cat_Tipo_Instalacion" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.fk_cartilla_aplicacion_vacuna" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK__Ope_Recor__Recor__6AEFE058" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Apl_Usuarios" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="ERP_EJE_CENTRALModel.Cat_Tramites" Width="1.5" PointX="3" PointY="7.25" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.Tramites_Estatus" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.fkUsuarioRoleConfig" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Apl_Usuarios_Apl_Tipo_Usuarios" />
+        <AssociationConnector Association="ERP_EJE_CENTRALModel.FK_Cat_Tramites_Pasos_Cat_Tramites" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

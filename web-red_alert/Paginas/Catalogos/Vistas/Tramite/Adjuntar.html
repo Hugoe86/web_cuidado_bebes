@@ -1,0 +1,78 @@
+﻿
+
+<div class="modal fade" id="adjuntar" name="adjuntar" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close cancelar" data-dismiss="modal" aria-label="Close" onclick="_set_close_adjunto();">
+                    <i class="fa fa-times text-red"></i>
+                </button>
+                <h3 class="modal-title" id="myModalLabel">
+                    <label id="lbl_titulo_adjuntar"></label>
+                </h3>
+            </div>
+
+            <div class="modal-body">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-color panel-default" id="pnl_datos_oc" style="margin-bottom:10px !important">
+                            <div class="panel-heading">
+                            </div>
+                            <div class="panel-body">
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div style="display: none;">
+                                            <input id="txt_pasos_adjunto_id" type="hidden" class="form-control" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="text-blue text-bold">Adjuntar Archivo</h4>
+                                    </div>
+                                </div>
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+
+                                <div class="row">
+                                    <!--<div class="col-md-2">
+                                        <img src="../../../../Reportes/Importaciones/1746092-1745809_24933_bd_noob_color_122_183lo.jpg" 
+                                             class="rounded-circle float-left" alt="Sample image">
+                                    </div>-->
+
+                                    <div class="col-md-10">
+                                        <label class="fuente_lbl_controles">*Adjuntar Archivo</label>
+                                        <input id="fl_adjuntar_archivo_productos" type="file" accept="image/*" class="form-control-file" />
+                                        <div id="bugs"></div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button id="btn_leer_archivo" class="btn btn-blue btn-block" style="margin-top:19px;" type="button"><i class="fa fa-upload"></i>&nbsp;Cargar</button>
+                                    </div>
+
+                                </div>
+                                <!-- ************************************************************************************************************************************ -->
+                                <!-- ************************************************************************************************************************************ -->
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

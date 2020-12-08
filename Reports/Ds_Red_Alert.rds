@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Ds_Red_Alert">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=GMCNT140;Initial Catalog=AAM_Red_Alert</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>54ae125c-1b1a-47de-8353-370c931d24d9</DataSourceID>
+</RptDataSource>

@@ -1,0 +1,151 @@
+﻿
+<div style="height:100vh !important; width:100% !important;" class="container">
+    <div class="row" style="color:#40bbea;margin-top:8px; margin-bottom:8px">
+        <div class="col-md-7">
+
+        </div>
+        <div class="col-md-5" style="text-align:right">
+            <button id="btn_guardar" class="btn btn-success" title="Guardar"><i class="fa fa-check"></i><span id="spn_guardar">&nbsp;Guardar</span></button>
+            <button id="btn_cancelar" class="btn btn-danger" title="Cancelar"><i class="fa fa-remove"></i>&nbsp;Cancelar</button>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-color panel-default" id="pnl_datos_oc" style="margin-bottom:10px !important">
+                <div class="panel-heading">
+                    <!--<h3 class="panel-title">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;Datos del medico
+                    </h3>-->
+
+                    <h3 class="panel-title">
+                        <i style="color: blue;font-size:16px" class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;Datos del M&eacute;dico
+                    </h3>
+
+                    <!--<div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                    </div>-->
+                </div>
+                <div class="panel-body">
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="display: none;">
+                                <input id="txt_medico_id" type="hidden" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+
+                        <div class="col-md-4">
+
+                            <div class="row">
+                                <div class="col-md-8" id="contenedor_img" style="left:15%; padding:0px; text-align:center; border:solid;height: 200px;">
+                                    <img id="btn_eliminar_img" title="Eliminar Imagen" src="../../../../Recursos/img/icono_cancelar.png" style="position:absolute; right:0px; height:30px; width:30px; cursor:pointer; display:none;" onclick="_eliminar_imagen()">
+                                    <img id="img_foto_medico" src="../../../../Recursos/img/logo.jpg" alt="Responsive image" style="height:100%; width:100%;">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="fuente_lbl_controles">*Adjuntar foto</label>
+                                    <input id="fl_adjuntar_archivo_operacion" type="file" accept="image/*" class="form-control-file" />
+                                    <div id="bugs"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button id="btn_cargar_foto" class="btn btn-blue btn-block" style="margin-top:19px;" type="button"><i class="fa fa-upload"></i>&nbsp;Cargar foto</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" style="display:none;">
+                                    <label class="fuente_lbl_controles">(*) Nombre y tipo archivo</label>
+                                    <input id="txt_nombre_archivo_xml" type="text" class="form-control" placeholder="" style="margin-top:0px" maxlength="100" disabled />
+                                    <input id="txt_tipo_archivo_xml" type="text" class="form-control" placeholder="" style="margin-top:0px" maxlength="100" disabled />
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-8">
+                            <!-- ************************************************************************************************************************************ -->
+                            <!-- ************************************************************************************************************************************ -->
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <label class="fuente_lbl_controles">(*) Nombre</label>
+                                    <input id="txt_nombre" type="text" class="form-control" placeholder="Nombre" style="margin-top:0px" maxlength="100" />
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="fuente_lbl_controles">(*) Apellido Paterno</label>
+                                    <input id="txt_apellido_paterno" type="text" class="form-control" placeholder="Apellido paterno" style="margin-top:0px" maxlength="100" />
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <label class="fuente_lbl_controles">Apellido Materno</label>
+                                    <input id="txt_apellido_materno" type="text" class="form-control" placeholder="Apellido materno" style="margin-top:0px" maxlength="100" />
+                                </div>
+
+                            </div>
+                            <!-- ************************************************************************************************************************************ -->
+                            <!-- ************************************************************************************************************************************ -->
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="fuente_lbl_controles">(*) Estatus</label>
+                                    <select id="cmb_estatus" name="cmb_estatus" class="form-control input-sm" style="border-radius:inherit"></select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="fuente_lbl_controles">(*) Especialidad</label>
+                                    <select id="cmb_especialidad" name="cmb_especialidad" class="form-control input-sm" style="border-radius:inherit"></select>
+                                </div>
+
+                                <!--<div class="col-md-4">
+                                    <label class="fuente_lbl_controles">No. Cedula</label>
+                                    <input id="txt_nocedula" type="text" class="form-control" placeholder="No. Cedula" style="margin-top:0px" maxlength="50" />
+                                </div>-->
+
+                            </div>
+                            <!-- ************************************************************************************************************************************ -->
+                            <!-- ************************************************************************************************************************************ -->
+
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <label class="fuente_lbl_controles">Télefono</label>
+                                    <input id="txt_telefono" type="text" class="form-control" placeholder="Télefono" style="margin-top:0px" maxlength="10" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="fuente_lbl_controles">Email</label>
+                                    <input id="txt_email" type="text" class="form-control" placeholder="Email" style="margin-top:0px" maxlength="100" onkeypress="return _validar_caracteres_email(event);"/>
+                                </div>
+                                <div class="col-md-4" style="margin-top:15px">
+                                    <div class="form-check form-check-inline" >
+                                        <input class="icheck-11" type="checkbox" id="ck_urgencias" name="ck_urgencias">
+                                        <label class="fuente_lbl_controles" for="ck_urgencias">¿Atiende Urgencias?</label>
+                                    </div>
+                                </div>                               
+                            </div>
+                            
+                            <!-- ************************************************************************************************************************************ -->
+                            <!-- ************************************************************************************************************************************ -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

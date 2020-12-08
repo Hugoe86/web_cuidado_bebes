@@ -1,0 +1,87 @@
+﻿
+
+<div class="modal fade" id="modal_tags" name="modal_tags" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close cancelar" data-dismiss="modal" aria-label="Close" onclick="_cancelar_modal_click();">
+                    <i class="fa fa-times text-red"></i>
+                </button>
+                <h3 class="modal-title" id="myModalLabel">
+                    <label id="lbl_titulo_modal"></label>
+                </h3>
+            </div>
+
+            <div class="modal-body">
+
+
+                <div class="panel panel-color panel-default" id="pnl_datos_oc" style="margin-bottom:10px !important">
+
+                    <div class="panel-body">
+                       
+
+                        <!-- ************************************************************************************************************************************ -->
+                        <!-- ************************************************************************************************************************************ -->
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label class="fuente_lbl_controles">(*) Tag</label>
+                                 <input id="txt_nombre_tag" type="text" class="form-control" placeholder="Tag" style="margin-top:0px" maxlength="255" />
+                            </div>
+
+                            <div class="col-md-2">
+                                <button id="btn_agregar_tag_tabla" class="btn btn-success btn-block" title="Agregar"><i class="glyphicon glyphicon-plus"></i>&nbsp;Agregar a tabla</button>
+                            </div>
+                            <div class="col-md-2">
+                                <button id="btn_regresar_operacion" class="btn btn-info" title="Regresar"><i class="fa fa-remove"></i>&nbsp;Actualizar tags</button>
+                            </div>
+
+                            
+                        </div>
+
+
+                       
+
+                        <!-- ************************************************************************************************************************************ -->
+                        <!-- ************************************************************************************************************************************ -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <br />
+                            </div>
+                        </div>
+                       
+                        <!-- ************************************************************************************************************************************ -->
+                        <!-- ************************************************************************************************************************************ -->
+                        <div class="row">
+
+                            <div class="col-md-12 text-center">
+                                <table id="tbl_tags_asignados" class="table table-responsive"></table>
+                            </div>
+
+                        </div>
+
+                        <!-- ************************************************************************************************************************************ -->
+                        <!-- ************************************************************************************************************************************ -->
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <div class="row" style="color:#40bbea;margin-top:8px; margin-bottom:8px">
+                    <div class="col-md-7">
+
+                    </div>
+                    <div class="col-md-5" style="text-align:right">
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

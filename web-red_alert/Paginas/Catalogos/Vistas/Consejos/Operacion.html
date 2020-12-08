@@ -1,0 +1,140 @@
+﻿
+
+<div style="height:100vh !important; width:100% !important;" class="container">
+    <div class="row" style="color:#40bbea;margin-top:8px; margin-bottom:8px">
+        <div class="col-md-7">
+
+        </div>
+        <div class="col-md-5" style="text-align:right">
+            <button id="btn_guardar" class="btn btn-success" title="Guardar"><i class="fa fa-check"></i><span id="spn_guardar">&nbsp;Guardar</span></button>
+            <button id="btn_cancelar" class="btn btn-danger" title="Cancelar"><i class="fa fa-remove"></i>&nbsp;Cancelar</button>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-color panel-default" id="pnl_datos_oc" style="margin-bottom:10px !important">
+                <div class="panel-heading">
+                    <!--<h3 class="panel-title">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;Datos del medico
+                    </h3>-->
+
+                    <h3 class="panel-title">
+                        <i style="color: blue;font-size:16px" class="fa fa-book" aria-hidden="true"></i>&nbsp;Datos del Consejo
+                    </h3>
+
+                    <!--<div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                    </div>-->
+                </div>
+                <div class="panel-body">
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="display: none;">
+                                <input id="txt_consejo_id" type="hidden" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="fuente_lbl_controles">(*) Consejo</label>
+                            <input id="txt_consejo" type="text" class="form-control" placeholder="Consejo" style="margin-top:0px" maxlength="100" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="fuente_lbl_controles">(*) Estatus</label>
+                            <select id="cmb_estatus" name="cmb_estatus" class="form-control input-sm" style="border-radius:inherit"></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="fuente_lbl_controles">(*) Descripci&oacute;n</label>
+                            <textarea id="txt_descripcion" class="form-control-textarea" placeholder="Descripcion" style="margin-top:0px;" maxlength="1500" />
+                        </div>
+                    </div>
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+                        <br />
+                    </div>
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+
+                    <div class="row">
+
+                        <div class="col-md-5">
+                            <label class="fuente_lbl_controles">Tags</label>
+                            <input id="txt_tags" type="text" class="form-control" placeholder="Tags" style="margin-top:0px" maxlength="100" disabled />
+                        </div>
+
+                        <div class="col-md-1">
+                            <button id="btn_asignar_tag" class="btn btn-info btn-block" title="Ver"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;Tags</button>
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-color panel-default" id="pnl_datos_oc" style="margin-bottom:10px !important">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <i style="color: purple;font-size:16px" class="fa fa-video-camera" aria-hidden="true"></i>&nbsp;Video
+                    </h3>
+                    <div class="panel-options">
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label class="fuente_lbl_controles">Id del video</label>
+                            <input id="txt_url" type="text" class="form-control" placeholder="Id" style="margin-top:0px" maxlength="100" />
+                        </div>
+                        <div class="col-md-1">
+                            <button id="btn_visualizar" class="btn btn-danger btn-block" title="Ver"><i class="fa fa-youtube-play"></i>&nbsp;Visualizar</button>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+                        <div class="col-md-12" id="content">
+                        </div>
+                    </div>
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

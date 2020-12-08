@@ -1,0 +1,269 @@
+﻿<!-- ************************************************************************************************************************************ -->
+<!-- ************************************************************************************************************************************ -->
+
+
+<div style="height:100vh !important; width:100% !important;" class="container">
+    <div class="row" style="color:#40bbea;margin-top:8px; margin-bottom:8px">
+        <div class="col-md-7">
+
+        </div>
+        <div class="col-md-5" style="text-align:right">
+            <button id="btn_guardar" class="btn btn-success" title="Guardar"><i class="fa fa-check"></i><span id="spn_guardar">&nbsp;Guardar</span></button>
+            <button id="btn_cancelar" class="btn btn-danger" title="Cancelar"><i class="fa fa-remove"></i>&nbsp;Cancelar</button>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-color panel-default" id="pnl_datos_oc" style="margin-bottom:10px !important">
+                <div class="panel-heading">
+                    <!--<h3 class="panel-title">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;Datos del medico
+                    </h3>-->
+
+                    <h3 class="panel-title">
+                        <i style="color: blue;font-size:16px" class="fa fa-book" aria-hidden="true"></i>&nbsp;Datos
+                    </h3>
+
+                    <!--<div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                    </div>-->
+                </div>
+                <div class="panel-body">
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="display: none;">
+                                <input id="txt_ubicacion_id" type="hidden" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="fuente_lbl_controles">(*) Nombre</label>
+                            <input id="txt_nombre" type="text" class="form-control" placeholder="Nombre" style="margin-top:0px" maxlength="100" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="fuente_lbl_controles">(*) Longitud</label>
+                            <input id="txt_longitud" type="text" class="form-control" placeholder="Longitud" style="margin-top:0px" maxlength="50" disabled />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="fuente_lbl_controles">(*) Latitud</label>
+                            <input id="txt_latitud" type="text" class="form-control" placeholder="Latitud" style="margin-top:0px" maxlength="50" disabled />
+                        </div>
+                    </div>
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label class="fuente_lbl_controles">(*) Tipo de instalaci&oacute;n</label>
+                            <select id="cmb_tipo_instalacion" name="cmb_tipo_instalacion" class="form-control input-sm" style="border-radius:inherit"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="fuente_lbl_controles">(*) Estatus</label>
+                            <select id="cmb_estatus" name="cmb_estatus" class="form-control input-sm" style="border-radius:inherit"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="fuente_lbl_controles">Sitio Web</label>
+                            <input id="txt_sitio_web" type="text" class="form-control" placeholder="Sitio Web" style="margin-top:0px" maxlength="250" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="fuente_lbl_controles">(*)Teléfono</label>
+                            <input id="txt_telefono" type="text" class="form-control" placeholder="(*)Teléfono" style="margin-top:0px" maxlength="10" onkeypress="return _validar_numeros(event);"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="fuente_lbl_controles">Teléfono Urgencias</label>
+                            <input id="txt_telefono_urgencias" type="text" class="form-control" placeholder="Teléfono Urgencias" style="margin-top:0px" maxlength="50" />
+                        </div>
+                        <div class="col-md-4" style="margin-top:20px">
+                            <div class="form-check form-check-inline">
+                                <input class="icheck-11" type="checkbox" id="ck_urgencias" name="ck_urgencias">
+                                <label class="fuente_lbl_controles" for="ck_urgencias">¿Atiende Urgencias?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="fuente_lbl_controles">Observaciones</label>
+                            <textarea id="txt_observaciones" class="form-control-textarea" placeholder="Observaciones" style="margin-top:0px;" />
+                        </div>
+                    </div>
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ************************************************************************************************************************************ -->
+    <!-- ************************************************************************************************************************************ -->
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-color panel-default" id="pnl_datos_oc" style="margin-bottom:10px !important">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <i style="color: orange;font-size:16px" class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;Horarios
+                    </h3>
+                    <div class="panel-options">
+                        <!--<a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="fuente_lbl_controles">Día</label>
+                            <select id="cmb_dia" name="cmb_dia" class="form-control input-sm" style="border-radius:inherit;width:100%"></select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="fuente_lbl_controles">Horario inicio</label>
+
+                            <div class="input-group date" id="dtp_txt_hora_inicio">
+                                <input type="text" id="txt_hora_inicio" data-format="hh:mm:ss"
+                                       class="form-control" style="margin: 0px;" placeholder="hh:mm" />
+
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="fuente_lbl_controles">Horario termino</label>
+
+                            <div class="input-group date" id="dtp_txt_hora_termino">
+                                <input type="text" id="txt_hora_termino" data-format="hh:mm:ss"
+                                       class="form-control" style="margin: 0px;" placeholder="hh:mm" />
+
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-3" style="margin-top:15px">
+                            <button id="btn_agregar" type="button" class="btn btn-info btn-sm" title="Agregar"><i class="glyphicon glyphicon-plus"></i>Agregar</button>
+                        </div>
+                    </div>
+                    <br />
+                    <table id="tbl_horarios_ubicacion" class="table table-responsive"></table>
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <br />
+
+                    <div class="row" style="display:none;">
+                        <div class="col-md-2">
+                            <div class="form-check form-check-inline" style="margin-top:10px;">
+                                <input class="icheck-11" type="checkbox" id="chk_lunes">
+                                <label class="form-check-label" for="chk_lunes">Lunes</label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check form-check-inline" style="margin-top:10px;">
+                                <input class="icheck-11" type="checkbox" id="chk_martes">
+                                <label class="form-check-label" for="chk_martes">Martes</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check form-check-inline" style="margin-top:10px;">
+                                <input class="icheck-11" type="checkbox" id="chk_miercoles">
+                                <label class="form-check-label" for="chk_miercoles">Miercoles</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check form-check-inline" style="margin-top:10px;">
+                                <input class="icheck-11" type="checkbox" id="chk_jueves">
+                                <label class="form-check-label" for="chk_jueves">Jueves</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check form-check-inline" style="margin-top:10px;">
+                                <input class="icheck-11" type="checkbox" id="chk_viernes">
+                                <label class="form-check-label" for="chk_viernes">Viernes</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <br />
+                    <div class="row" style="display:none;">
+                        <div class="col-md-2">
+                            <div class="form-check form-check-inline" style="margin-top:10px;">
+                                <input class="icheck-11" type="checkbox" id="chk_sabado">
+                                <label class="form-check-label" for="chk_sabado">Sabado</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check form-check-inline" style="margin-top:10px;">
+                                <input class="icheck-11" type="checkbox" id="chk_domingo">
+                                <label class="form-check-label" for="chk_domingo">Domingo</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-color panel-default" id="pnl_datos_oc" style="margin-bottom:10px !important">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <i style="color: purple;font-size:16px" class="fa fa-map" aria-hidden="true"></i>&nbsp;Mapa
+                    </h3>
+                    <div class="panel-options">
+
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div id="div_buscador">
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+
+                            <input id="txt_busqueda_lugar"
+                                   type="text" class="form-control" onkeypress="return _evitar_submit_enter(event)" style="margin-top:0px; width:50%;" />
+
+                        </div>
+                    </div>
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                    <div class="row" id="content">
+                        <div id="mapa" class="col-sm-12" style="height:600px"></div>
+                    </div>
+
+                    <!-- ************************************************************************************************************************************ -->
+                    <!-- ************************************************************************************************************************************ -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

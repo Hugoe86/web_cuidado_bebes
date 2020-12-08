@@ -1,0 +1,7 @@
+https://www.npmjs.com/package/angular-bootstrap3-datepicker
+
+http://eonasdan.github.io/bootstrap-datetimepicker/
+
+http://eonasdan.github.io/bootstrap-datetimepicker/Options/
+
+https://github.com/diosney/angular-bootstrap-datetimepicker-directive

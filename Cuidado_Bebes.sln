@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web_Cuidado_Bebes", "web-red_alert\Web_Cuidado_Bebes.csproj", "{D6CE2804-BB9A-4E81-BD31-B99453247FD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "datos-Cuidado_Bebes", "datos-red_alert\datos-Cuidado_Bebes.csproj", "{82E5BAC7-8405-4941-A9E9-4371E609E5D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugLocal|Any CPU = DebugLocal|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6CE2804-BB9A-4E81-BD31-B99453247FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6CE2804-BB9A-4E81-BD31-B99453247FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6CE2804-BB9A-4E81-BD31-B99453247FD2}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6CE2804-BB9A-4E81-BD31-B99453247FD2}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{D6CE2804-BB9A-4E81-BD31-B99453247FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6CE2804-BB9A-4E81-BD31-B99453247FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E5BAC7-8405-4941-A9E9-4371E609E5D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E5BAC7-8405-4941-A9E9-4371E609E5D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E5BAC7-8405-4941-A9E9-4371E609E5D7}.DebugLocal|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E5BAC7-8405-4941-A9E9-4371E609E5D7}.DebugLocal|Any CPU.Build.0 = Debug|Any CPU
+		{82E5BAC7-8405-4941-A9E9-4371E609E5D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E5BAC7-8405-4941-A9E9-4371E609E5D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11C04C2F-FA6B-4874-AE8B-4FD89CC935C5}
+	EndGlobalSection
+	GlobalSection(HgVSProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+	GlobalSection(HgVSProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+	GlobalSection(HgVSProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+	GlobalSection(HgVSProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+EndGlobal
